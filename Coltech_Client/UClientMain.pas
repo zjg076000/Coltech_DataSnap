@@ -76,7 +76,6 @@ type
     NumberBox1: TNumberBox;
     GridPanelLayout2: TGridPanelLayout;
     Panel8: TPanel;
-    Panel9: TPanel;
     Panel10: TPanel;
     Panel12: TPanel;
     Panel13: TPanel;

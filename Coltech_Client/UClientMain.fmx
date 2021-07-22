@@ -546,20 +546,12 @@ object FClientMain: TFClientMain
             Size.Height = 330.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            object Panel9: TPanel
-              Position.X = 64.000000000000000000
-              Position.Y = -24.000000000000000000
-              Size.Width = 9.000000000000000000
-              Size.Height = 33.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 2
-            end
             object Panel15: TPanel
               Align = Top
               Size.Width = 416.000000000000000000
               Size.Height = 30.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 3
+              TabOrder = 2
               object Label13: TLabel
                 Position.X = 13.000000000000000000
                 Position.Y = 7.000000000000000000

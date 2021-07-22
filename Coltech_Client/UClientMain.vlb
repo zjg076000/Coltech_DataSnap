@@ -26,7 +26,7 @@ Coordinates=190,190,47,33
 Coordinates=610,130,59,33
 
 []
-Coordinates=668,261,53,33
+Coordinates=162,350,47,33
 Visible=False
 
 [FDStanStorageJSONLink1]
@@ -173,9 +173,6 @@ Coordinates=707,209,102,33
 
 [Panel8]
 Coordinates=211,350,47,33
-
-[Panel9]
-Coordinates=162,350,47,33
 
 [Panel10]
 Coordinates=546,280,53,33
