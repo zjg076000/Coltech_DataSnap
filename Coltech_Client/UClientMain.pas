@@ -13,7 +13,8 @@ uses
   Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope,
   FireDAC.Stan.StorageJSON, FireDAC.Stan.StorageBin,FireDACJSONReflect,
   FMX.Edit, System.ImageList, FMX.ImgList, FireDAC.Stan.Async, FireDAC.DApt,
-  FMX.Ani, FMX.ListBox, FMX.Objects;
+  FMX.Ani, FMX.ListBox, FMX.Objects, FMX.Menus, FMX.EditBox, FMX.NumberBox,
+  FMX.Layouts;
 
 type
   TFClientMain = class(TForm)
@@ -63,10 +64,29 @@ type
     SpeedButton3: TSpeedButton;
     FloatAnimation4: TFloatAnimation;
     Label10: TLabel;
-    Edit7: TEdit;
     Label11: TLabel;
-    Edit8: TEdit;
+    PopupMenu1: TPopupMenu;
+    Label12: TLabel;
+    Panel7: TPanel;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    RadioButton3: TRadioButton;
+    RadioButton4: TRadioButton;
+    ComboBox1: TComboBox;
+    NumberBox1: TNumberBox;
+    GridPanelLayout2: TGridPanelLayout;
+    Panel8: TPanel;
+    Panel9: TPanel;
+    Panel10: TPanel;
+    Panel12: TPanel;
+    Panel13: TPanel;
+    Panel14: TPanel;
+    Panel15: TPanel;
+    Panel16: TPanel;
     StringGrid3: TStringGrid;
+    StringGrid4: TStringGrid;
+    Label13: TLabel;
+    Label14: TLabel;
     procedure SpeedButton1Click(Sender: TObject);
     procedure btnConnClick(Sender: TObject);
   private
