@@ -1,6 +1,5 @@
 ﻿// 
 // Created by the DataSnap proxy generator.
-// 2021/7/22 13:40:27
 // 
 
 function DSAdmin(connectionInfo)
@@ -616,16 +615,16 @@ function DSAdmin(connectionInfo)
   };
 }
 
-function TServer_DataModule(connectionInfo)
+function TServerMethods1(connectionInfo)
 {
-  this.executor = new ServerFunctionExecutor("TServer_DataModule",connectionInfo);
+  this.executor = new ServerFunctionExecutor("TServerMethods1",connectionInfo);
 
   /*
    * @param Value [in] - Type on server: string
    * @return result - Type on server: string
    */
   this.EchoString = function(Value) {
-    var returnObject = this.executor.executeMethod('EchoString', "GET", [Value], arguments[1], true, arguments[2], arguments[3]);
+    var returnObject = this.executor.executeMethod("EchoString", "GET", [Value], arguments[1], true, arguments[2], arguments[3]);
     if (arguments[1] == null) {
       if (returnObject != null && returnObject.result != null && isArray(returnObject.result)) {
         var resultArray = returnObject.result;
@@ -647,7 +646,7 @@ function TServer_DataModule(connectionInfo)
    * @return result - Type on server: string
    */
   this.ReverseString = function(Value) {
-    var returnObject = this.executor.executeMethod('ReverseString', "GET", [Value], arguments[1], true, arguments[2], arguments[3]);
+    var returnObject = this.executor.executeMethod("ReverseString", "GET", [Value], arguments[1], true, arguments[2], arguments[3]);
     if (arguments[1] == null) {
       if (returnObject != null && returnObject.result != null && isArray(returnObject.result)) {
         var resultArray = returnObject.result;
@@ -663,36 +662,10 @@ function TServer_DataModule(connectionInfo)
   this.ReverseString_URL = function(Value) {
     return this.executor.getMethodURL("ReverseString", "GET", [Value], arguments[1])[0];
   };
-
-  /*
-   * @param StrSymblos [in] - Type on server: string
-   * @return result - Type on server: TFDJSONDataSets
-   */
-  this.GetSymbolsList = function(StrSymblos) {
-    var returnObject = this.executor.executeMethod('GetSymbolsList', "GET", [StrSymblos], arguments[1], true, arguments[2], arguments[3]);
-    if (arguments[1] == null) {
-      if (returnObject != null && returnObject.result != null && isArray(returnObject.result)) {
-        var resultArray = returnObject.result;
-        var resultObject = new Object();
-        resultObject.StrSymblos = StrSymblos;
-        resultObject.result = resultArray[0];
-        if (returnObject.cacheId != null && returnObject.cmdIndex != null) {
-          resultObject._cacheId = returnObject.cacheId;
-          resultObject._cmdIndex = returnObject.cmdIndex;
-        }
-        return resultObject;
-      }
-      return returnObject;
-    }
-  };
-
-  this.GetSymbolsList_URL = function(StrSymblos) {
-    return this.executor.getMethodURL("GetSymbolsList", "GET", [StrSymblos], arguments[1])[0];
-  };
 }
 
 var JSProxyClassList = {
   "DSAdmin": ["GetPlatformName","ClearResources","FindPackages","FindClasses","FindMethods","CreateServerClasses","DropServerClasses","CreateServerMethods","DropServerMethods","GetServerClasses","ListClasses","DescribeClass","ListMethods","DescribeMethod","GetServerMethods","GetServerMethodParameters","GetDatabaseConnectionProperties","GetDSServerName","ConsumeClientChannel","ConsumeClientChannelTimeout","CloseClientChannel","RegisterClientCallbackServer","UnregisterClientCallback","BroadcastToChannel","BroadcastObjectToChannel","NotifyCallback","NotifyObject"],
-  "TServer_DataModule": ["EchoString","ReverseString","GetSymbolsList"]
+  "TServerMethods1": ["EchoString","ReverseString"]
 };
 

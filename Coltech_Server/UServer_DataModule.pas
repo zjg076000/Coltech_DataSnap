@@ -1,4 +1,4 @@
-unit UServer_DataModule;
+﻿unit UServer_DataModule;
 
 interface
 
@@ -8,7 +8,8 @@ uses System.SysUtils, System.Classes, System.Json,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.Phys.MySQLDef, FireDAC.FMXUI.Wait, FireDAC.Stan.Param,
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-   FireDAC.Comp.UI, FireDAC.Phys.MySQL,firedac.comp.Client,Vcl.DBCtrls,RegularExpressions;
+   FireDAC.Comp.UI, FireDAC.Phys.MySQL,firedac.comp.Client,Vcl.DBCtrls,RegularExpressions,
+  FireDAC.Stan.StorageJSON, FireDAC.Stan.StorageBin;
 
 type
 {$METHODINFO ON}
@@ -17,6 +18,8 @@ type
     FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     Fdq_symbols: TFDQuery;
+    FDStanStorageJSONLink1: TFDStanStorageJSONLink;
+    FDStanStorageBinLink1: TFDStanStorageBinLink;
   private
      // EdtValue:string:查询条件，用 ’，’ 分割成字符串数组，如： 600007,600015...
     // TableValue:string:查询数据表的名称。字符型  如：sys_user

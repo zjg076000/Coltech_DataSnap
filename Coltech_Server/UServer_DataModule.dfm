@@ -10,6 +10,7 @@ object Server_DataModule: TServer_DataModule
       'Server=10.0.2.46'
       'DriverID=MySQL')
     Connected = True
+    LoginPrompt = False
     Left = 88
     Top = 48
   end
@@ -23,7 +24,7 @@ object Server_DataModule: TServer_DataModule
   object FDGUIxWaitCursor1: TFDGUIxWaitCursor
     Provider = 'FMX'
     Left = 80
-    Top = 208
+    Top = 200
   end
   object Fdq_symbols: TFDQuery
     Active = True
@@ -31,7 +32,7 @@ object Server_DataModule: TServer_DataModule
     SQL.Strings = (
       ' select * From funding_system.trade_product '
       'where  ProductCode=:a')
-    Left = 72
+    Left = 80
     Top = 280
     ParamData = <
       item
@@ -40,5 +41,13 @@ object Server_DataModule: TServer_DataModule
         ParamType = ptInput
         Value = '600005'
       end>
+  end
+  object FDStanStorageJSONLink1: TFDStanStorageJSONLink
+    Left = 232
+    Top = 240
+  end
+  object FDStanStorageBinLink1: TFDStanStorageBinLink
+    Left = 248
+    Top = 184
   end
 end
