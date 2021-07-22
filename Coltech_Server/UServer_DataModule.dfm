@@ -1,23 +1,22 @@
 object Server_DataModule: TServer_DataModule
   OldCreateOrder = False
+  OnCreate = DataModuleCreate
   Height = 416
   Width = 492
   object FDConnection1: TFDConnection
     Params.Strings = (
       'Database=funding_system'
       'User_Name=root'
-      'Password=Coltech'
-      'Server=10.0.2.46'
+      'Password=fd12345@coltech.comdba'
+      'Server=10.0.2.28'
+      'Port=12336'
       'DriverID=MySQL')
-    Connected = True
     LoginPrompt = False
     Left = 88
     Top = 48
   end
   object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
-    VendorLib = 
-      'D:\SoftCode\Coltech_DataSnap\Coltech_DataSnap\Coltech_Server\lib' +
-      'mysql.dll'
+    VendorLib = 'libmysql.dll'
     Left = 80
     Top = 128
   end
@@ -27,7 +26,6 @@ object Server_DataModule: TServer_DataModule
     Top = 200
   end
   object Fdq_symbols: TFDQuery
-    Active = True
     Connection = FDConnection1
     SQL.Strings = (
       ' select * From funding_system.trade_product '

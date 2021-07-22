@@ -1,7 +1,7 @@
 object FClientMain: TFClientMain
   Left = 0
   Top = 0
-  Caption = 'yunfe'
+  Caption = #36816#32500#23567#24037#20855
   ClientHeight = 728
   ClientWidth = 832
   FormFactor.Width = 320
@@ -11,73 +11,269 @@ object FClientMain: TFClientMain
   object Panel1: TPanel
     Align = Top
     Size.Width = 832.000000000000000000
-    Size.Height = 41.000000000000000000
+    Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
     object Label1: TLabel
-      Position.X = 8.000000000000000000
-      Position.Y = 8.000000000000000000
+      Position.X = 34.000000000000000000
+      Position.Y = 7.000000000000000000
+      Size.Width = 89.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
       Text = #26381#21153#22120#37197#32622#20449#24687
       TabOrder = 1
+    end
+    object Image1: TImage
+      MultiResBitmap.Height = 16
+      MultiResBitmap.Width = 16
+      MultiResBitmap = <
+        item
+          Width = 16
+          Height = 16
+          PNG = {
+            89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+            61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+            018549444154384FB5D24D2F03411807F0FF4E8B6A4988A45E4E22759138B971
+            90888BF01524BE8170901E24C245E28070F352476E049190B8689B0627340E92
+            5694A822116D37ED7667F7B136433A09C5C1EF32BBF33CF3DF9DDDC1FF992036
+            BAADCD5DA68C7CE094EF75AF518DA8FC6C705D1F38BCE2092A927C35F21B67FA
+            9468F986DFAC5B3EE6BBE99C618A7592A3B84993FBDA82E8B63131DA463AF94C
+            AF8FF557BB9822A66CF76960F584E3296B20A3915B4CDBA4008702B2F68C832B
+            0377AF04DD00220913E16B8EC66AC0E5148D45A4800FDC2084E30616833A5E54
+            139E7251F8C29701EF98552998E2A60429E05135AB5259B2AF4B3DB59814E0F5
+            B0ECFB789E247C04FD440AC89B60D107A0AA02503520A78B42095280D3FA0B1A
+            27C49E812715A82C138512A4804C9E725DCD0C6E6BFF195DDE825A20BE19A59D
+            AD4BB622A66CD281819F6AFB7C85B1DE5665A8DEA334DC5A67A1CDAB20744317
+            A118CD47862B02A2F3931C20B4CF524B4793366DBD494F5275043683CE712C29
+            BFF8227F06BC0103C4B90FE21DFDCD0000000049454E44AE426082}
+          FileName = 
+            'F:\soft\delphi\Coltech_DataSnap\Coltech_Client\image\16\'#25299#25169#22270'_'#26381#21153#22120'.' +
+            'png'
+        end>
+      MarginWrapMode = Fit
+      Position.X = 10.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 17.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
     end
   end
   object Panel2: TPanel
     Align = Top
-    Position.Y = 41.000000000000000000
+    Position.Y = 33.000000000000000000
     Size.Width = 832.000000000000000000
-    Size.Height = 64.000000000000000000
+    Size.Height = 120.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
+    object Label3: TLabel
+      Position.X = 24.000000000000000000
+      Position.Y = 17.000000000000000000
+      Size.Width = 65.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = #26381#21153#22120' IP'#65306
+      TabOrder = 7
+    end
+    object edtIP: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 8
+      KeyboardType = Alphabet
+      ReadOnly = True
+      Text = '192.168.128.53'
+      Position.X = 88.000000000000000000
+      Position.Y = 17.000000000000000000
+      Size.Width = 177.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object Label4: TLabel
+      Position.X = 312.000000000000000000
+      Position.Y = 17.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = #36890#20449#31471#21475' '#65306
+      TabOrder = 2
+    end
+    object edtPort: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 3
+      KeyboardType = Alphabet
+      ReadOnly = True
+      Text = '3306'
+      Position.X = 400.000000000000000000
+      Position.Y = 17.000000000000000000
+      Size.Width = 177.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object Label5: TLabel
+      Position.X = 24.000000000000000000
+      Position.Y = 49.000000000000000000
+      Size.Width = 65.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = #30331#24405#36134#21495#65306
+      TabOrder = 5
+    end
+    object edtAccount: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 6
+      KeyboardType = Alphabet
+      ReadOnly = True
+      Text = 'root'
+      Position.X = 88.000000000000000000
+      Position.Y = 49.000000000000000000
+      Size.Width = 177.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object Label6: TLabel
+      Position.X = 312.000000000000000000
+      Position.Y = 49.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = #30331#24405#23494#30721' '#65306
+      TabOrder = 0
+    end
+    object edtPassword: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 1
+      KeyboardType = Alphabet
+      Password = True
+      ReadOnly = True
+      Text = '******'
+      Position.X = 400.000000000000000000
+      Position.Y = 49.000000000000000000
+      Size.Width = 177.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object Label7: TLabel
+      Position.X = 16.000000000000000000
+      Position.Y = 84.000000000000000000
+      Size.Width = 73.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = #25968#25454#24211#21517#31216#65306
+      TabOrder = 4
+    end
+    object cmbDatabase: TComboBox
+      Position.X = 88.000000000000000000
+      Position.Y = 81.000000000000000000
+      Size.Width = 177.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 9
+    end
+    object btnConn: TSpeedButton
+      Images = ImageList1
+      ImageIndex = 4
+      Position.X = 312.000000000000000000
+      Position.Y = 80.000000000000000000
+      Size.Width = 73.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      Text = #26410#19978#32447
+      OnClick = btnConnClick
+      object FloatAnimation2: TFloatAnimation
+        Duration = 0.200000002980232200
+        PropertyName = 'Opacity'
+        StartValue = 0.000000000000000000
+        StopValue = 0.000000000000000000
+      end
+    end
   end
   object Panel3: TPanel
     Align = Client
     Size.Width = 832.000000000000000000
-    Size.Height = 623.000000000000000000
+    Size.Height = 575.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
     object TabControl1: TTabControl
       Align = Client
+      Images = ImageList1
       Size.Width = 832.000000000000000000
-      Size.Height = 623.000000000000000000
+      Size.Height = 575.000000000000000000
       Size.PlatformDefault = False
-      TabIndex = 0
+      TabIndex = 2
       TabOrder = 1
       TabPosition = PlatformDefault
       Sizes = (
         832s
-        597s
+        549s
         832s
-        597s
+        549s
         832s
-        597s)
+        549s)
       object TabItem1: TTabItem
         CustomIcon = <
           item
           end>
-        IsSelected = True
-        Size.Width = 69.000000000000000000
+        IsSelected = False
+        ImageIndex = 2
+        Size.Width = 84.000000000000000000
         Size.Height = 26.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
         TabOrder = 0
-        Text = 'TabItem1'
+        Text = #26032#32929#26816#26597
+        ExplicitSize.cx = 69.000000000000000000
+        ExplicitSize.cy = 26.000000000000000000
         object Panel4: TPanel
           Align = Top
           Size.Width = 832.000000000000000000
           Size.Height = 65.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
+          object SpeedButton1: TSpeedButton
+            Images = ImageList1
+            ImageIndex = 3
+            Position.X = 392.000000000000000000
+            Position.Y = 24.000000000000000000
+            Size.Width = 57.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            Text = ' '#26597#35810'  '
+            OnClick = SpeedButton1Click
+            object FloatAnimation1: TFloatAnimation
+              Duration = 0.200000002980232200
+              PropertyName = 'Opacity'
+              StartValue = 0.000000000000000000
+              StopValue = 0.000000000000000000
+            end
+          end
+          object Label2: TLabel
+            Position.X = 16.000000000000000000
+            Position.Y = 24.000000000000000000
+            Size.Width = 65.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            Text = #26032#32929#32534#30721#65306
+            TabOrder = 1
+          end
+          object Edt_symbols: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            TabOrder = 2
+            KeyboardType = Alphabet
+            Position.X = 80.000000000000000000
+            Position.Y = 24.000000000000000000
+            Size.Width = 305.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+          end
         end
-        object Grid1: TGrid
+        object StringGrid1: TStringGrid
           Align = Client
           CanFocus = True
           ClipChildren = True
           Size.Width = 832.000000000000000000
-          Size.Height = 532.000000000000000000
+          Size.Height = 484.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
           Viewport.Width = 828.000000000000000000
-          Viewport.Height = 507.000000000000000000
+          Viewport.Height = 459.000000000000000000
         end
       end
       object TabItem2: TTabItem
@@ -85,26 +281,398 @@ object FClientMain: TFClientMain
           item
           end>
         IsSelected = False
-        Size.Width = 69.000000000000000000
+        ImageIndex = 0
+        Size.Width = 96.000000000000000000
         Size.Height = 26.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
         TabOrder = 0
-        Text = 'TabItem2'
+        Text = #26356#25913#25163#26426#21495
+        ExplicitSize.cx = 69.000000000000000000
+        ExplicitSize.cy = 26.000000000000000000
+        object Panel5: TPanel
+          Align = Top
+          Size.Width = 832.000000000000000000
+          Size.Height = 97.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object SpeedButton2: TSpeedButton
+            Images = ImageList1
+            ImageIndex = 6
+            Position.X = 392.000000000000000000
+            Position.Y = 24.000000000000000000
+            Size.Width = 57.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            Text = #25191#34892'  '
+            OnClick = SpeedButton1Click
+            object FloatAnimation3: TFloatAnimation
+              Duration = 0.200000002980232200
+              PropertyName = 'Opacity'
+              StartValue = 0.000000000000000000
+              StopValue = 0.000000000000000000
+            end
+          end
+          object Label8: TLabel
+            Position.X = 16.000000000000000000
+            Position.Y = 24.000000000000000000
+            Size.Width = 65.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            Text = #30331#24405#36134#21495#65306
+            TabOrder = 3
+          end
+          object Edit5: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            TabOrder = 4
+            KeyboardType = Alphabet
+            Position.X = 80.000000000000000000
+            Position.Y = 24.000000000000000000
+            Size.Width = 305.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object Label9: TLabel
+            Position.X = 16.000000000000000000
+            Position.Y = 56.000000000000000000
+            Size.Width = 65.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            Text = #25163#26426#21495#65306
+            TabOrder = 1
+          end
+          object Edit6: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            TabOrder = 2
+            KeyboardType = Alphabet
+            Position.X = 80.000000000000000000
+            Position.Y = 56.000000000000000000
+            Size.Width = 305.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+          end
+        end
+        object StringGrid2: TStringGrid
+          Align = Client
+          CanFocus = True
+          ClipChildren = True
+          Size.Width = 832.000000000000000000
+          Size.Height = 452.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Viewport.Width = 828.000000000000000000
+          Viewport.Height = 427.000000000000000000
+        end
       end
       object TabItem3: TTabItem
         CustomIcon = <
           item
           end>
-        IsSelected = False
-        Size.Width = 69.000000000000000000
+        IsSelected = True
+        ImageIndex = 1
+        Size.Width = 108.000000000000000000
         Size.Height = 26.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
         TabOrder = 0
-        Text = 'TabItem3'
+        Text = #26356#25913#25104#20132#27169#24335
+        ExplicitSize.cx = 69.000000000000000000
+        ExplicitSize.cy = 26.000000000000000000
+        object Panel6: TPanel
+          Align = Top
+          Size.Width = 832.000000000000000000
+          Size.Height = 97.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object SpeedButton3: TSpeedButton
+            Images = ImageList1
+            ImageIndex = 6
+            Position.X = 392.000000000000000000
+            Position.Y = 24.000000000000000000
+            Size.Width = 57.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            Text = #25191#34892'  '
+            OnClick = SpeedButton1Click
+            object FloatAnimation4: TFloatAnimation
+              Duration = 0.200000002980232200
+              PropertyName = 'Opacity'
+              StartValue = 0.000000000000000000
+              StopValue = 0.000000000000000000
+            end
+          end
+          object Label10: TLabel
+            Position.X = 16.000000000000000000
+            Position.Y = 24.000000000000000000
+            Size.Width = 65.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            Text = #30331#24405#36134#21495#65306
+            TabOrder = 3
+          end
+          object Edit7: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            TabOrder = 4
+            KeyboardType = Alphabet
+            Position.X = 80.000000000000000000
+            Position.Y = 24.000000000000000000
+            Size.Width = 305.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object Label11: TLabel
+            Position.X = 16.000000000000000000
+            Position.Y = 56.000000000000000000
+            Size.Width = 65.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            Text = #25163#26426#21495#65306
+            TabOrder = 1
+          end
+          object Edit8: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            TabOrder = 2
+            KeyboardType = Alphabet
+            Position.X = 80.000000000000000000
+            Position.Y = 56.000000000000000000
+            Size.Width = 305.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+          end
+        end
+        object StringGrid3: TStringGrid
+          Align = Client
+          CanFocus = True
+          ClipChildren = True
+          Size.Width = 832.000000000000000000
+          Size.Height = 452.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Viewport.Width = 828.000000000000000000
+          Viewport.Height = 427.000000000000000000
+        end
       end
     end
+  end
+  object FDStanStorageBinLink1: TFDStanStorageBinLink
+    Left = 385
+    Top = 457
+  end
+  object FDStanStorageJSONLink1: TFDStanStorageJSONLink
+    Left = 409
+    Top = 529
+  end
+  object ImageList1: TImageList
+    Source = <
+      item
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              00A949444154384FCDD23F0AC2301887E1A0288A6EAEBA6B77BD8C57F0021E41
+              1007CFE129C413742A52C10BB828080AFE797F4984E2A049A7BEF09074E8D736
+              D454AE3A866E5BAE252E2835A4833B5EC8D145540974F3C7067FABF9556538B9
+              AD6DEBD79F15073CB1705BDBCDAF5169E00EFA8407A688AE870334446F35C304
+              6BE8A0831AE088E2A1CA1E2304D5478AEF2157E80141B5B1827E2EDD7CC61C0D
+              44D5C4182D7B55A18C79030E10251B4961E2250000000049454E44AE426082}
+            FileName = 
+              'F:\soft\delphi\Coltech_DataSnap\Coltech_Client\image\16\'#21518#21313#24180' '#25163#26426#21495'.' +
+              'png'
+          end>
+        Name = #21518#21313#24180' '#25163#26426#21495
+      end
+      item
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              013749444154384F95D3BF2B46511CC7F1E3477E24C52022A50C22322865A62C
+              06C5C6E41F30192CB2C88F8552240303260F2565304894C1F0C8C2A464928941
+              29BFDE9F73EF51F7DC53CFF5A957F77C6FCFF3EDDCF3C378A9C232AEB18F3994
+              227356A03F15DBCA98362C45C370DC0F5DBAB180039CA11A8DA840A6F4611C63
+              68C2367A508E60FC195CA112EF78432B06518F60FC067E6AF1884D4CA20B8914
+              6A708A5D682D5EB0861D6CA0088906ED688886A9DC610F79ACE31943F86B308B
+              291C42D3D41AC831948FF8A9DCE01675B68A73113F5B308D325BA53380128C62
+              422F54289A7A2F4E70892F84F2801F74405B9B779FB0886174DAEA1F710DBEA1
+              C3B3852CA7AE06AFD130991168AB0AE51CCD1AF8E720077DFF8CADD2D1CD5CC5
+              3D9EF4C21E864074A1FAA1ADD4A2B9E8BA1F611E9FC618F30BD4483502A1EA83
+              0F0000000049454E44AE426082}
+            FileName = 'F:\soft\delphi\Coltech_DataSnap\Coltech_Client\image\16\'#25163#21160'.png'
+          end>
+        Name = #25163#21160
+      end
+      item
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              01F349444154384FAD934168135110866766936AB409D21214F426649FD54BA1
+              20DA8301B1F42608D6932064B3146C11F1E2C183DE44C593089A4BA988878242
+              0F167AA89B4610D14B6FF1A49E22AD496D242D89796F7CFBF22ABB989B7EB03B
+              F3CF3FCC7B3BB0F05F71FDE0A24D0DC25BCD1DF32AC7AD34E4BCF279F03F26AD
+              04B2D18012EED9B407F1398572D22A0301DF123B326325246CFC0BF9247BFBFB
+              AFC20546A4ECD3EC081DD8F0710AA4B5FF10BBC12EEAD95046325FC92636AF1D
+              1C68CC30A0E0C6D098B563F41D003FDB7B89709DA6EB6FB0580F90E52720DC6F
+              DD186640CE5F3D2B0A2BAFB53A248A2B8BD7BFDE1C316E84F2D6E861D70B5E01
+              765CD8D35A30CBD49801C46A161DE76EB5944F313B2FABADA353613D4AF9C758
+              1E10DE564B131984E42C22DC08EB6680624EB1C26F61AEA96DCA749219325C1A
+              CE9B07F048B33D88C0BD1E64A7A6C5BE30EFBB836637DD45C4178DCEE0FD7A3B
+              FD1019BF2C6F9DAC593B46FF256A12FEFA9DF1B5F9B9F1B5B9E7CEF486DFE501
+              B6560C330001B7F5BD4EB9854A1E0946F5555BC68DC0C4DBFA7D22EC51D839C3
+              CCA6C70C60A247A0E42524B9042C4F2BC6F9B01E8510167410483B8BFAB0195D
+              78D073228842F0D9A606E197AFBAC5C06C7B17E1051FC4E5F7C356C677A088E3
+              FF02C33BA5B06295417FCAE36ACA695AF9AF00FC0698FBB29E814D5B00000000
+              0049454E44AE426082}
+            FileName = 'F:\soft\delphi\Coltech_DataSnap\Coltech_Client\image\16\'#32929#31080'.png'
+          end>
+        Name = #32929#31080
+      end
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              00F849444154384FADD2CD4A025118C6F1A1A5AD4ACAAF95425177A2F720EEF5
+              464C68A11BAF4005FBD8864BD76EA295DD80227E82688944F67FCE382439C740
+              7DE0C79CF71DE6CC61E6758E9D33E431C30A0B9411C5BF496182311E50400D03
+              CC9186359718E105E76A6C248C163E71A5865F8AD05B22A6DACE0574B24753F9
+              E40D3AEEAEDC63E82E7F73B2BEC6D07697D6E87E10DE33265ED1C1ADBBB446F7
+              75826F53FD4909FA4809536D27802E9E4CE59310F417DE11576323A7A8E003D7
+              6AD89284E6608A3AEE50450FFA43193470036B34891A20BD4D93B88426511FB9
+              B9EEF5B173135BB2D00647DBE4558D7D92C3179E4D75581CE707A27E376B4011
+              2C6E0000000049454E44AE426082}
+            FileName = 'F:\soft\delphi\Coltech_DataSnap\Coltech_Client\image\16\'#26597#35810'.png'
+          end>
+        Name = #26597#35810
+      end
+      item
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              012449444154384FCDD2BF2BC4711CC7F18F1F83D2595814D2C56090420C060C
+              572291986CFC13A29441298BED884C7685C94252CAC0229332C8603A941890E7
+              F3FA7EAF6FEE52265EF5E8EE3E7DBE9FEFFBFBBA6FF8F394459FC9D4610AF5F8
+              C433EE7183CB68AD90E401ED98C503767087649A318E266CE11AF903CAB10C2F
+              D844370650890A980FBCE30817F0461EB480B08E16F4601B83F0D0EF71AD1FF3
+              706F2BB24E90C10C1C6905BDE8C3155E60AAD181139C620293D8883BA8C52396
+              E088BB1845278C6B07B0832E2CA206B9F8195FE158E9FCAF10A661F3FBD883FB
+              E6F0861472B845A124E3058EEAA63534600C16FA842C1AE1A39EE1C7AC621816
+              A79168AD28A5DA3687F06EBE34F2BB1D14A5D49B18C77FA70D5538C7317E9D21
+              D8C1BF4D085F39C13952279431A30000000049454E44AE426082}
+            FileName = 
+              'F:\soft\delphi\Coltech_DataSnap\Coltech_Client\image\16\wifi'#36830#25509#65288#40664 +
+              #35748#65289'.png'
+          end>
+        Name = 'wifi'#36830#25509#65288#40664#35748#65289
+      end
+      item
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              00EC49444154384FC5D2BD6A02411486E13141AC832903E91589D8D8086A91C6
+              4A11BD1E2F219556DA69E72FA4172DB4D32A571154308582A8EFB7ECC84654D4
+              22F9E06167CF99B30CBB6BFE3D3EF7EACD338A08E3150B8C30C6045B9C4C046D
+              6CB03B6389264238E401657837CEF0890F97D6AAD9BE4EA119CD9A166CE30B69
+              388DA3A896440F76BF4E63DEB142097E2450C110DFAE815B534F29E00729E78E
+              04F1882AECD3CFA9417B9FF02B71ACA14D0DE4F102452FAD0EF574DA189C1C7F
+              C60C02D0D7C8E20DCA145DE430471F17D381F7D8A2DAD589423F901DD65AB59B
+              621F72D7B08D06EF1EFE8B18B30768EE4AB257C23A380000000049454E44AE42
+              6082}
+            FileName = 
+              'F:\soft\delphi\Coltech_DataSnap\Coltech_Client\image\16\wifi'#36830#25509'.p' +
+              'ng'
+          end>
+        Name = 'wifi'#36830#25509
+      end
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              011949444154384FA5933B4A054110454B03414D740B46FE90A7829F1DE8060C
+              043371110AC213435760A86060E6064C8DFCA0A8994BD05030D173ABA69B7933
+              3D26EFC0A1AB667A9AEEEA1A1B96916A6C32863D5CF1CCEC019FF0C7B31ACD05
+              941FE3389EE3078A19DCC76F3CC55F6CA18FFB38EB5919BDD39CE2CE0F713342
+              67B21A9B68CE518466A3D5A8334FE39D67C115EE443880E64CA1BEC96CE17A84
+              995BD4592F70420F6AACE1B682B483397C89B0C51E3EE3AA67C12B7AADD202A2
+              EB4AFF252DF0868B11B6B8C425BCF72C58C0F7080315E42CC2CC0D968A2834D7
+              8B9876A00EFBC4FA35EEE27584036CE01716BB524D32EF5919BD53A7E67A350B
+              A7BCAB950F50AD7C82B995BB2A9F7EA665CFCC1EB1F8330D89D91F4A2B28B798
+              D0F7130000000049454E44AE426082}
+            FileName = 'F:\soft\delphi\Coltech_DataSnap\Coltech_Client\image\16\'#25191#34892'.png'
+          end>
+        Name = #25191#34892
+      end>
+    Destination = <
+      item
+        Layers = <
+          item
+            Name = #21518#21313#24180' '#25163#26426#21495
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = #25163#21160
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = #32929#31080
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = #26597#35810
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'wifi'#36830#25509#65288#40664#35748#65289
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'wifi'#36830#25509
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = #25191#34892
+          end>
+      end>
+    Left = 473
+    Top = 217
   end
   object FDMemTable1: TFDMemTable
     FetchOptions.AssignedValues = [evMode]
@@ -114,11 +682,25 @@ object FClientMain: TFClientMain
     UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
     UpdateOptions.CheckRequired = False
     UpdateOptions.AutoCommitUpdates = True
-    Left = 321
-    Top = 281
+    Left = 121
+    Top = 257
   end
-  object DataSource1: TDataSource
-    Left = 321
-    Top = 361
+  object BindSourceDB1: TBindSourceDB
+    DataSet = FDMemTable1
+    ScopeMappings = <>
+    Left = 400
+    Top = 352
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 248
+    Top = 221
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      GridControl = StringGrid1
+      Columns = <>
+    end
   end
 end

@@ -20,6 +20,7 @@ type
     Fdq_symbols: TFDQuery;
     FDStanStorageJSONLink1: TFDStanStorageJSONLink;
     FDStanStorageBinLink1: TFDStanStorageBinLink;
+    procedure DataModuleCreate(Sender: TObject);
   private
      // EdtValue:string:查询条件，用 ’，’ 分割成字符串数组，如： 600007,600015...
     // TableValue:string:查询数据表的名称。字符型  如：sys_user
@@ -96,6 +97,27 @@ begin
 
 end;
 
+procedure TServer_DataModule.DataModuleCreate(Sender: TObject);
+begin
+    with FDConnection1 do begin
+    Close;
+    // create temporary connection definition
+    with Params do begin
+      Clear;
+      Add('DriverID=MySQL');
+      Add('Server=10.0.2.28'); //+ edtServer.text);
+      Add('Port=12336'); //+ edtPort.Text);
+      Add('Database=funding_system');// + edtDB.Text);
+      Add('Password=fd12345@coltech.comdba'); //+ edtpass.Text);
+      Add('User_Name=root');
+     // Add('CharacterSet=gb2312');
+      Add('CharacterSet=utf8');
+
+    end;
+    Open;
+    end;
+end;
+
 function TServer_DataModule.EchoString(Value: string): string;
 begin
   Result := Value;
@@ -111,6 +133,7 @@ begin
 
   Result := TFDJSONDataSets.Create;
   // Add departments dataset
+
   TFDJSONDataSetsWriter.ListAdd(Result, 'Symbols', Fdq_symbols);
 
 end;
