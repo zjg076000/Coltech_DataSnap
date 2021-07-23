@@ -1,4 +1,4 @@
-unit UClientMain;
+﻿unit UClientMain;
 
 interface
 
@@ -133,12 +133,12 @@ begin
      if btnConn.ImageIndex=4 then
      begin
         btnConn.ImageIndex:=5;
-         btnConn.Text:='������';
+         btnConn.Text:='已连接';
      end
      else
       begin
         btnConn.ImageIndex:=4;
-         btnConn.Text:='δ����';
+         btnConn.Text:='未上线';
      end
 
 end;
