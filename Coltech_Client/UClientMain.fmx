@@ -34,19 +34,19 @@ object FClientMain: TFClientMain
           PNG = {
             89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
             61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-            018549444154384FB5D24D2F03411807F0FF4E8B6A4988A45E4E22759138B971
-            90888BF01524BE8170901E24C245E28070F352476E049190B8689B0627340E92
-            5694A822116D37ED7667F7B136433A09C5C1EF32BBF33CF3DF9DDDC1FF992036
-            BAADCD5DA68C7CE094EF75AF518DA8FC6C705D1F38BCE2092A927C35F21B67FA
-            9468F986DFAC5B3EE6BBE99C618A7592A3B84993FBDA82E8B63131DA463AF94C
-            AF8FF557BB9822A66CF76960F584E3296B20A3915B4CDBA4008702B2F68C832B
-            0377AF04DD00220913E16B8EC66AC0E5148D45A4800FDC2084E30616833A5E54
-            139E7251F8C29701EF98552998E2A60429E05135AB5259B2AF4B3DB59814E0F5
-            B0ECFB789E247C04FD440AC89B60D107A0AA02503520A78B42095280D3FA0B1A
-            27C49E812715A82C138512A4804C9E725DCD0C6E6BFF195DDE825A20BE19A59D
-            AD4BB622A66CD281819F6AFB7C85B1DE5665A8DEA334DC5A67A1CDAB20744317
-            A118CD47862B02A2F3931C20B4CF524B4793366DBD494F5275043683CE712C29
-            BFF8227F06BC0103C4B90FE21DFDCD0000000049454E44AE426082}
+            018549444154384FB5D2CD2B04611C07F0EFCEAE5DFB42A496BD495C94931B07
+            250EE25F50FE0371D01E94B82807C46D631DB91152948B6D134E585B9425642D
+            CACBBECDEC3C333F637A56FBD45A1C7C2ECF3CCFEFF77CA767E6C1FF19236978
+            5D99394B303978C4B63A96A88A577ED6BFACF6ED9EAB375420FECAE495637582
+            B77CC3AFD7040ED8E65B86E97C9F602FA6D3F8B632C7BB4D121F4D436D6CAABB
+            51EAAD745A2D7CC974FF0E2C1E323CA534241572F1659310606CA36842C3CE85
+            86BB3782AA01FB373AC2570CBE0AA0DCC61B0B0801794C2384631AE6432A5ED2
+            3ADC765E28A268C027C9A8E4743E294108784C6B9E448ACCE7526F2D240478DD
+            D6D4E7781227E4837E2204C83AA4C803E071006905C8AABC5082106033FE82C2
+            0897CFC0531A7096F1420942C0BB4CD9F67A092EE3FC49553C422AA7B3D5086D
+            AC45A505BE64122E0CFC54DDD3981BE96AC240AD5BAABB35EE42B3D782D0359D
+            866334BB3FE808F2CE2F6200D7324D0DAD3E79D265B774C633D6E06AC8368A80
+            E5175FE4CF800FEAA5B906F3E2124A0000000049454E44AE426082}
           FileName = 
             'F:\soft\delphi\Coltech_DataSnap\Coltech_Client\image\16\'#25299#25169#22270'_'#26381#21153#22120'.' +
             'png'
@@ -73,7 +73,7 @@ object FClientMain: TFClientMain
       Text = #26381#21153#22120' IP'#65306
       TabOrder = 8
     end
-    object edtIP: TEdit
+    object edtServer: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       TabOrder = 9
       KeyboardType = Alphabet
@@ -213,6 +213,7 @@ object FClientMain: TFClientMain
         Size.PlatformDefault = False
         TabOrder = 16
         Text = '1061-9.0'
+        OnClick = RadioButton1Click
       end
       object RadioButton2: TRadioButton
         Position.X = 88.000000000000000000
@@ -222,6 +223,7 @@ object FClientMain: TFClientMain
         Size.PlatformDefault = False
         TabOrder = 15
         Text = '1069'
+        OnClick = RadioButton1Click
       end
       object RadioButton3: TRadioButton
         Position.X = 152.000000000000000000
@@ -230,7 +232,8 @@ object FClientMain: TFClientMain
         Size.Height = 19.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 14
-        Text = '1061-1'
+        Text = '1111'
+        OnClick = RadioButton1Click
       end
       object RadioButton4: TRadioButton
         Position.X = 225.000000000000000000
@@ -239,7 +242,8 @@ object FClientMain: TFClientMain
         Size.Height = 19.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 13
-        Text = '1061-2'
+        Text = '1112'
+        OnClick = RadioButton1Click
       end
     end
   end
@@ -257,7 +261,7 @@ object FClientMain: TFClientMain
       Size.Width = 832.000000000000000000
       Size.Height = 576.000000000000000000
       Size.PlatformDefault = False
-      TabIndex = 2
+      TabIndex = 1
       TabOrder = 1
       TabPosition = PlatformDefault
       Sizes = (
@@ -340,7 +344,7 @@ object FClientMain: TFClientMain
         CustomIcon = <
           item
           end>
-        IsSelected = False
+        IsSelected = True
         ImageIndex = 0
         Size.Width = 96.000000000000000000
         Size.Height = 26.000000000000000000
@@ -428,7 +432,7 @@ object FClientMain: TFClientMain
         CustomIcon = <
           item
           end>
-        IsSelected = True
+        IsSelected = False
         ImageIndex = 1
         Size.Width = 108.000000000000000000
         Size.Height = 26.000000000000000000
@@ -632,6 +636,10 @@ object FClientMain: TFClientMain
         end
       end
     end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 592
+    Top = 64
   end
   object FDStanStorageBinLink1: TFDStanStorageBinLink
     Left = 385
@@ -881,9 +889,5 @@ object FClientMain: TFClientMain
       GridControl = StringGrid1
       Columns = <>
     end
-  end
-  object PopupMenu1: TPopupMenu
-    Left = 592
-    Top = 64
   end
 end

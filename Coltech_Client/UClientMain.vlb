@@ -129,9 +129,6 @@ Coordinates=546,210,84,51
 [edtPort]
 Coordinates=358,222,50,51
 
-[edtIP]
-Coordinates=358,1,40,51
-
 [edtAccount]
 Coordinates=211,261,70,51
 
@@ -203,4 +200,7 @@ Coordinates=323,439,52,51
 
 [Label14]
 Coordinates=264,439,52,51
+
+[edtServer]
+Coordinates=358,1,40,51
 

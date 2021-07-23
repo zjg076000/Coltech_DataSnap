@@ -14,7 +14,7 @@ uses
   FireDAC.Stan.StorageJSON, FireDAC.Stan.StorageBin,FireDACJSONReflect,
   FMX.Edit, System.ImageList, FMX.ImgList, FireDAC.Stan.Async, FireDAC.DApt,
   FMX.Ani, FMX.ListBox, FMX.Objects, FMX.Menus, FMX.EditBox, FMX.NumberBox,
-  FMX.Layouts;
+  FMX.Layouts,inifiles;
 
 type
   TFClientMain = class(TForm)
@@ -40,7 +40,7 @@ type
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     FloatAnimation1: TFloatAnimation;
     Label3: TLabel;
-    edtIP: TEdit;
+    edtServer: TEdit;
     Label4: TLabel;
     edtPort: TEdit;
     Label5: TLabel;
@@ -88,10 +88,13 @@ type
     Label14: TLabel;
     procedure SpeedButton1Click(Sender: TObject);
     procedure btnConnClick(Sender: TObject);
+    procedure RadioButton1Click(Sender: TObject);
   private
-    { Private declarations }
+    dbUser,dbPass,dbName,dbPort,dbServer:string;
+    //读取数据库到到主界面连接信息
+    procedure proc_readini(ServerId:string);
   public
-    { Public declarations }
+     ConnRemoteIP:string;
   end;
 
 var
@@ -101,18 +104,72 @@ implementation
      uses ClientModuleUnit1;
 {$R *.fmx}
 
+
+procedure TFClientMain.proc_readini(ServerId:string);
+begin
+ var strIniFile:=GetCurrentDir +'\Config.ini';
+ //dbSection 从1 开始对应相应的应用 ：1061-9.0  是Database1, 依次类推（按顺序增加）
+
+ var DbSection:='DataBase'+ServerId;
+  if FileExists(strIniFile) then
+  begin
+  with TIniFile.Create(strIniFile) do
+    try
+        dbUser := ReadString(DbSection, 'User_Name', '');
+        dbPass := ReadString(DbSection, 'Password', '');
+       // cmbDatabase.:=ReadString(DbSection, 'Database', '');
+        edtServer.text := ReadString(DbSection, 'Server', '');
+        edtPort.Text  := ReadString(DbSection, 'port', '');
+    finally
+     Free;
+    end;
+
+   end;
+
+end;
+
 procedure TFClientMain.btnConnClick(Sender: TObject);
 begin
      if btnConn.ImageIndex=4 then
      begin
         btnConn.ImageIndex:=5;
-         btnConn.Text:='������';
+         btnConn.Text:='������';
      end
      else
       begin
         btnConn.ImageIndex:=4;
-         btnConn.Text:='δ����';
+         btnConn.Text:='δ����';
      end
+
+end;
+
+procedure TFClientMain.RadioButton1Click(Sender: TObject);
+begin
+    ClientModule1.DSRestConnection1.Host:='10.0.2.9';
+    ClientModule1.DSRestConnection1.Reset;
+
+
+  {  var str:=trim(TRadioButton(Sender).Text);
+
+    //远程服务器 端口号 211
+
+    if str='1061-9.0' then   ConnRemoteIP:='47.93.11.161'
+    else if str='1069' then   ConnRemoteIP:='39.97.190.62'
+    else if str='1111' then   ConnRemoteIP:='39.106.14.245'
+    else  ConnRemoteIP:='39.105.131.112';
+
+    with   ClientModule1.DSRestConnection1 do
+    begin
+
+      Host:=ConnRemoteIP;
+      Port:=211;
+      ClientModule1.DSRestConnection1.Reset;
+
+    end;      }
+
+
+    //
+
 
 end;
 

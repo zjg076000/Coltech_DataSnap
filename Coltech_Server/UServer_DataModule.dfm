@@ -1,8 +1,8 @@
 object Server_DataModule: TServer_DataModule
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Height = 416
-  Width = 492
+  Height = 540
+  Width = 837
   object FDConnection1: TFDConnection
     Params.Strings = (
       'Database=funding_system'
@@ -47,5 +47,17 @@ object Server_DataModule: TServer_DataModule
   object FDStanStorageBinLink1: TFDStanStorageBinLink
     Left = 248
     Top = 184
+  end
+  object Fdq_pub: TFDQuery
+    Connection = FDConnection1
+    Left = 388
+    Top = 56
+  end
+  object Fdq_Tel: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from sys_user')
+    Left = 752
+    Top = 16
   end
 end
