@@ -89,6 +89,7 @@ type
     procedure SpeedButton1Click(Sender: TObject);
     procedure btnConnClick(Sender: TObject);
     procedure RadioButton1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     dbUser,dbPass,dbName,dbPort,dbServer:string;
     //读取数据库到到主界面连接信息
@@ -104,6 +105,11 @@ implementation
      uses ClientModuleUnit1;
 {$R *.fmx}
 
+
+procedure TFClientMain.FormCreate(Sender: TObject);
+begin
+   proc_readini('1');
+end;
 
 procedure TFClientMain.proc_readini(ServerId:string);
 begin
@@ -145,18 +151,36 @@ end;
 
 procedure TFClientMain.RadioButton1Click(Sender: TObject);
 begin
-    ClientModule1.DSRestConnection1.Host:='10.0.2.9';
-    ClientModule1.DSRestConnection1.Reset;
 
 
-  {  var str:=trim(TRadioButton(Sender).Text);
+   // ClientModule1.DSRestConnection1.Host:='10.0.2.9';
+   // ClientModule1.DSRestConnection1.Reset;
+
+
+  var str:=trim(TRadioButton(Sender).Text);
 
     //远程服务器 端口号 211
 
-    if str='1061-9.0' then   ConnRemoteIP:='47.93.11.161'
-    else if str='1069' then   ConnRemoteIP:='39.97.190.62'
-    else if str='1111' then   ConnRemoteIP:='39.106.14.245'
-    else  ConnRemoteIP:='39.105.131.112';
+    if str='1061-9.0' then
+    begin
+     ConnRemoteIP:='47.93.11.161';
+      proc_readini('1');
+    end
+    else if str='1069' then
+    begin
+     ConnRemoteIP:='39.97.190.62';
+     proc_readini('2');
+    end
+    else if str='1111' then
+    begin
+      ConnRemoteIP:='39.106.14.245';
+      proc_readini('3');
+    end
+    else
+    begin
+     ConnRemoteIP:='39.105.131.112';
+      proc_readini('4');
+    end;
 
     with   ClientModule1.DSRestConnection1 do
     begin
@@ -165,7 +189,7 @@ begin
       Port:=211;
       ClientModule1.DSRestConnection1.Reset;
 
-    end;      }
+    end;
 
 
     //
