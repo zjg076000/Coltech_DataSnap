@@ -1,6 +1,6 @@
 //
 // Created by the DataSnap proxy generator.
-// 2021/7/24 0:17:40
+// 2021/7/24 16:47:28
 //
 
 unit ClientClassesUnit1;
@@ -22,6 +22,8 @@ type
     FGetSymbolsListCommand_Cache: TDSRestCommand;
     FGetUpdateUserTelListCommand: TDSRestCommand;
     FGetUpdateUserTelListCommand_Cache: TDSRestCommand;
+    FGetUpdateTradeProductConfigCommand: TDSRestCommand;
+    FGetUpdateTradeProductConfigCommand_Cache: TDSRestCommand;
     FSetConnDabaseConfigCommand: TDSRestCommand;
   public
     constructor Create(ARestConnection: TDSRestConnection); overload;
@@ -34,6 +36,8 @@ type
     function GetSymbolsList_Cache(StrSymblos: string; const ARequestFilter: string = ''): IDSRestCachedTFDJSONDataSets;
     function GetUpdateUserTelList(strUser: string; strTel: string; const ARequestFilter: string = ''): TFDJSONDataSets;
     function GetUpdateUserTelList_Cache(strUser: string; strTel: string; const ARequestFilter: string = ''): IDSRestCachedTFDJSONDataSets;
+    function GetUpdateTradeProductConfig(RowId: string; WorkState: string; RealFlag: string; const ARequestFilter: string = ''): TFDJSONDataSets;
+    function GetUpdateTradeProductConfig_Cache(RowId: string; WorkState: string; RealFlag: string; const ARequestFilter: string = ''): IDSRestCachedTFDJSONDataSets;
     procedure SetConnDabaseConfig(dbServer: string; dbName: string; dbPort: string; dbUser: string; dbPass: string);
   end;
 
@@ -84,6 +88,22 @@ const
   (
     (Name: 'strUser'; Direction: 1; DBXType: 26; TypeName: 'string'),
     (Name: 'strTel'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: ''; Direction: 4; DBXType: 26; TypeName: 'String')
+  );
+
+  TServer_DataModule_GetUpdateTradeProductConfig: array [0..3] of TDSRestParameterMetaData =
+  (
+    (Name: 'RowId'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: 'WorkState'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: 'RealFlag'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: ''; Direction: 4; DBXType: 37; TypeName: 'TFDJSONDataSets')
+  );
+
+  TServer_DataModule_GetUpdateTradeProductConfig_Cache: array [0..3] of TDSRestParameterMetaData =
+  (
+    (Name: 'RowId'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: 'WorkState'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: 'RealFlag'; Direction: 1; DBXType: 26; TypeName: 'string'),
     (Name: ''; Direction: 4; DBXType: 26; TypeName: 'String')
   );
 
@@ -233,6 +253,50 @@ begin
   Result := TDSRestCachedTFDJSONDataSets.Create(FGetUpdateUserTelListCommand_Cache.Parameters[2].Value.GetString);
 end;
 
+function TServer_DataModuleClient.GetUpdateTradeProductConfig(RowId: string; WorkState: string; RealFlag: string; const ARequestFilter: string): TFDJSONDataSets;
+begin
+  if FGetUpdateTradeProductConfigCommand = nil then
+  begin
+    FGetUpdateTradeProductConfigCommand := FConnection.CreateCommand;
+    FGetUpdateTradeProductConfigCommand.RequestType := 'GET';
+    FGetUpdateTradeProductConfigCommand.Text := 'TServer_DataModule.GetUpdateTradeProductConfig';
+    FGetUpdateTradeProductConfigCommand.Prepare(TServer_DataModule_GetUpdateTradeProductConfig);
+  end;
+  FGetUpdateTradeProductConfigCommand.Parameters[0].Value.SetWideString(RowId);
+  FGetUpdateTradeProductConfigCommand.Parameters[1].Value.SetWideString(WorkState);
+  FGetUpdateTradeProductConfigCommand.Parameters[2].Value.SetWideString(RealFlag);
+  FGetUpdateTradeProductConfigCommand.Execute(ARequestFilter);
+  if not FGetUpdateTradeProductConfigCommand.Parameters[3].Value.IsNull then
+  begin
+    FUnMarshal := TDSRestCommand(FGetUpdateTradeProductConfigCommand.Parameters[3].ConnectionHandler).GetJSONUnMarshaler;
+    try
+      Result := TFDJSONDataSets(FUnMarshal.UnMarshal(FGetUpdateTradeProductConfigCommand.Parameters[3].Value.GetJSONValue(True)));
+      if FInstanceOwner then
+        FGetUpdateTradeProductConfigCommand.FreeOnExecute(Result);
+    finally
+      FreeAndNil(FUnMarshal)
+    end
+  end
+  else
+    Result := nil;
+end;
+
+function TServer_DataModuleClient.GetUpdateTradeProductConfig_Cache(RowId: string; WorkState: string; RealFlag: string; const ARequestFilter: string): IDSRestCachedTFDJSONDataSets;
+begin
+  if FGetUpdateTradeProductConfigCommand_Cache = nil then
+  begin
+    FGetUpdateTradeProductConfigCommand_Cache := FConnection.CreateCommand;
+    FGetUpdateTradeProductConfigCommand_Cache.RequestType := 'GET';
+    FGetUpdateTradeProductConfigCommand_Cache.Text := 'TServer_DataModule.GetUpdateTradeProductConfig';
+    FGetUpdateTradeProductConfigCommand_Cache.Prepare(TServer_DataModule_GetUpdateTradeProductConfig_Cache);
+  end;
+  FGetUpdateTradeProductConfigCommand_Cache.Parameters[0].Value.SetWideString(RowId);
+  FGetUpdateTradeProductConfigCommand_Cache.Parameters[1].Value.SetWideString(WorkState);
+  FGetUpdateTradeProductConfigCommand_Cache.Parameters[2].Value.SetWideString(RealFlag);
+  FGetUpdateTradeProductConfigCommand_Cache.ExecuteCache(ARequestFilter);
+  Result := TDSRestCachedTFDJSONDataSets.Create(FGetUpdateTradeProductConfigCommand_Cache.Parameters[3].Value.GetString);
+end;
+
 procedure TServer_DataModuleClient.SetConnDabaseConfig(dbServer: string; dbName: string; dbPort: string; dbUser: string; dbPass: string);
 begin
   if FSetConnDabaseConfigCommand = nil then
@@ -269,6 +333,8 @@ begin
   FGetSymbolsListCommand_Cache.DisposeOf;
   FGetUpdateUserTelListCommand.DisposeOf;
   FGetUpdateUserTelListCommand_Cache.DisposeOf;
+  FGetUpdateTradeProductConfigCommand.DisposeOf;
+  FGetUpdateTradeProductConfigCommand_Cache.DisposeOf;
   FSetConnDabaseConfigCommand.DisposeOf;
   inherited;
 end;

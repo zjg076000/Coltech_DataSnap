@@ -1101,6 +1101,7 @@
             <DataSnapProxyLookup>
                 <ClientClassesUnit1>{BDBE87FF-7CAD-4F5B-A09F-AC60F2551380}</ClientClassesUnit1>
             </DataSnapProxyLookup>
+            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

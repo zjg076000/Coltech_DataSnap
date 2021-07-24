@@ -26,20 +26,11 @@ Coordinates=190,190,47,33
 Coordinates=610,130,59,33
 
 []
-Coordinates=162,350,47,33
+Coordinates=362,420,84,195
 Visible=False
 
-[FDStanStorageJSONLink1]
-Coordinates=521,1,143,33
-
 [StringGrid1]
-Coordinates=250,-10,70,51
-
-[FDStanStorageBinLink1]
-Coordinates=521,56,132,33
-
-[SpeedButton1]
-Coordinates=287,152,84,51
+Coordinates=150,0,70,51
 
 [ImageList1]
 Coordinates=218,149,68,33
@@ -50,13 +41,6 @@ Coordinates=258,88,46,51
 [Edt_symbols]
 Coordinates=430,150,78,51
 
-[FDMemTable1]
-Coordinates=0,0,84,33
-Visible=True
-
-[BindSourceDB1]
-Coordinates=110,-20,92,69
-
 [BindingsList1]
 Coordinates=204,149,82,33
 
@@ -64,7 +48,7 @@ Coordinates=204,149,82,33
 Coordinates=189,149,95,33
 
 [Label3]
-Coordinates=141,149,46,51
+Coordinates=1070,390,46,51
 
 [Label4]
 Coordinates=309,261,46,51
@@ -88,31 +72,23 @@ Coordinates=189,149,95,33
 Coordinates=417,220,56,51
 
 [Panel5]
-Coordinates=239,149,47,33
+Coordinates=880,270,47,33
 
 [Label8]
 Coordinates=436,290,46,51
 
-[Edit5]
-Coordinates=417,350,40,51
-
 [FloatAnimation3]
 Coordinates=546,182,95,33
 
-[SpeedButton2]
-Coordinates=546,70,84,51
-
 [StringGrid2]
-Coordinates=539,140,70,51
-
-[Edit6]
-Coordinates=319,350,40,51
+Coordinates=840,480,70,51
 
 [Label9]
 Coordinates=368,350,46,51
 
 [Panel6]
-Coordinates=190,149,47,33
+Coordinates=800,240,47,33
+LayerNames=NewLayer0
 
 [Label10]
 Coordinates=260,350,52,51
@@ -122,9 +98,6 @@ Coordinates=546,280,95,33
 
 [Label11]
 Coordinates=103,350,52,51
-
-[SpeedButton3]
-Coordinates=546,210,84,51
 
 [edtPort]
 Coordinates=358,222,50,51
@@ -159,48 +132,138 @@ Coordinates=707,53,81,33
 [RadioButton4]
 Coordinates=707,105,81,33
 
-[ComboBox1]
-Coordinates=520,439,84,123
+[edtServer]
+Coordinates=358,1,61,51
 
-[NumberBox1]
-Coordinates=467,350,78,51
+[btnSymbols]
+Coordinates=287,152,73,51
 
-[GridPanelLayout2]
-Coordinates=707,209,102,33
+[btnTel]
+Coordinates=546,70,45,51
 
-[Panel8]
-Coordinates=211,350,47,33
+[edt_LoginName]
+Coordinates=417,350,91,51
 
-[Panel10]
-Coordinates=546,280,53,33
+[edt_Tel]
+Coordinates=319,350,50,51
 
-[Panel12]
-Coordinates=668,313,53,33
+[Fmtbl_Symbols]
+Coordinates=240,0,91,33
+Visible=True
 
-[Panel13]
-Coordinates=668,365,53,33
+[bdso_Symbols]
+Coordinates=10,-10,87,69
 
-[Panel14]
-Coordinates=668,417,53,33
+[FMtbl_UserTel]
+Coordinates=1080,560,85,33
+Visible=True
+
+[bdso_UserTel]
+Coordinates=960,530,82,213
+
+[FDStanStorageBinLink2]
+Coordinates=0,0,132,33
+
+[FDStanStorageJSONLink2]
+Coordinates=717,160,143,33
+
+[FMtbl_UserTelUserID]
+Coordinates=786,160,118,33
+
+[FMtbl_UserTelUserName]
+Coordinates=166,50,136,33
+
+[FMtbl_UserTelLoginName]
+Coordinates=166,50,141,33
+
+[FMtbl_UserTelMobile]
+Coordinates=166,50,117,33
+
+[FMtbl_UserTelStatus]
+Coordinates=166,50,116,33
+
+[FMtbl_UserTelIsDelete]
+Coordinates=166,50,124,33
+
+[FMtbl_UserTelLastLoginTime]
+Coordinates=166,50,158,33
+
+[FMtbl_UserTelLastLoginIP]
+Coordinates=166,50,144,33
+
+[btnAutoHand]
+Coordinates=546,210,79,51
+
+[cmb_antohand]
+Coordinates=540,470,87,123
+
+[NumBox]
+Coordinates=467,350,56,51
 
 [Panel15]
-Coordinates=609,439,53,33
+Coordinates=230,50,53,33
 
-[Panel16]
-Coordinates=461,439,53,33
+[FMtbl_trade_product_config]
+Coordinates=1005,302,153,33
+Visible=True
 
-[StringGrid3]
-Coordinates=668,261,70,51
+[StrGrd_trade_product_config]
+Coordinates=670,600,158,105
+Visible=True
 
-[StringGrid4]
-Coordinates=382,439,70,51
+[FMtbl_trade_product_configTextValue]
+Coordinates=898,1,202,33
 
 [Label13]
-Coordinates=323,439,52,51
+Coordinates=362,152,52,51
+
+[FMtbl_trade_product_configRemark]
+Coordinates=1138,1,191,33
+
+[GridPanelLayout1]
+Coordinates=942,105,102,33
+
+[Panel10]
+Coordinates=546,140,53,33
 
 [Label14]
-Coordinates=264,439,52,51
+Coordinates=461,439,52,51
 
-[edtServer]
-Coordinates=358,1,40,51
+[Panel8]
+Coordinates=730,340,47,33
+
+[FMtbl_trade_product_configConfigType]
+Coordinates=1138,53,210,33
+
+[Panel9]
+Coordinates=850,310,47,33
+
+[Module Settings]
+ModelLayerNames=NewLayer0
+ActiveLayerNames=
+EditingLayerName=
+
+[bdso_trade_product_config]
+Coordinates=842,292,150,123
+Visible=True
+
+[IntegerField1]
+Coordinates=110,171,78,33
+
+[WideStringField2]
+Coordinates=11,171,98,33
+
+[WideStringField1]
+Coordinates=942,53,98,33
+
+[bdso_trade_product_config_real]
+Coordinates=320,490,185,123
+
+[Grd_bdso_trade_product_config_real]
+Coordinates=120,490,198,51
+Visible=True
+
+[Fmtbl_trade_product_config_real]
+Visible=False
+Coordinates=707,212,208,33
 

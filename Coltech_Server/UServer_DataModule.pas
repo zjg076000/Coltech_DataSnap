@@ -22,6 +22,8 @@ type
     FDStanStorageBinLink1: TFDStanStorageBinLink;
     Fdq_pub: TFDQuery;
     Fdq_Tel: TFDQuery;
+    Fdq_trade_product_config: TFDQuery;
+    Fdq_trade_product_config_real: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
   private
       dbUser,dbPass,dbName,dbPort,dbServer:string;
@@ -39,6 +41,9 @@ type
       //执行exEsql  update insert  在服务端执行 sql
       function Fun_ExecSql(strsql: string;Fdq:TFDQuery): boolean;
 
+          //简单条件查询  select * from tables
+      procedure pro_LocateSql(Strsql:string;FdqName:TFDQuery);
+
       procedure proc_readini;
 
       //连接数据库
@@ -50,8 +55,13 @@ type
     function ReverseString(Value: string): string;
     //从服务端 取得 新股代码 返回到客户端
     function GetSymbolsList(const StrSymblos: string):TFDJSONDataSets;
-
+    //更改用户手机号
     function GetUpdateUserTelList(const strUser,strTel:string):TFDJSONDataSets;
+
+    //更改成交模式
+    function GetUpdateTradeProductConfig(const RowId,WorkState,RealFlag:string):TFDJSONDataSets;
+
+
 
     //设置数据初始化参数  写 config.INI的数据库配置参数
     Procedure SetConnDabaseConfig(dbServer,dbName,dbPort,dbUser,dbPass:string);
@@ -86,6 +96,16 @@ begin
 
    end;
 
+end;
+
+procedure TServer_DataModule.pro_LocateSql(Strsql: string; FdqName: TFDQuery);
+begin
+     with   FdqName do
+     begin
+       close;
+       sql.text:=strsql;
+       open;
+     end;
 end;
 
 function TServer_DataModule.Fun_ExecSql(strsql: string;Fdq:TFDQuery): boolean;
@@ -143,12 +163,16 @@ begin
      open;
   end;
 
+
 end;
 //连接数据库
 procedure TServer_DataModule.proc_ConnDataBase;
 begin
    proc_readini;
-   FDConnection1.close;
+   //if FDConnection1. then
+
+  // FDConnection1:=TFDConnection.create(nil);
+    FDConnection1.close;
     with FDConnection1 do begin
     Close;
     // create temporary connection definition
@@ -193,6 +217,59 @@ begin
 
 end;
 
+function TServer_DataModule.GetUpdateTradeProductConfig(const RowId,
+  WorkState,RealFlag: string): TFDJSONDataSets;
+var
+     strsql:string;
+begin
+try
+
+  if  RealFlag='0' then    //trade_product_config
+    begin
+
+      // 更新 成交模式数据  成交模式: 0:非实盘手动确认 1:实盘自动成交  2:非实盘自动确认)(A股)
+     strsql:=' UPDATE trade_product_config SET  TextValue='''+WorkState+''''
+              +' WHERE ConfigType='''+RowId+'''';
+    //更改 trade_product_config 的模式
+     Fun_ExecSql(strsql,Fdq_pub);
+
+      //Fdq_pub.free;
+
+     strsql:='select  * from  trade_product_config  limit  20,10 ';
+      pro_LocateSql(strsql,Fdq_trade_product_config);
+    //  Fdq_trade_product_config.Free;
+    Result := TFDJSONDataSets.Create;
+  // Add departments dataset
+    TFDJSONDataSetsWriter.ListAdd(Result, 'trade_product_config', Fdq_trade_product_config);
+    end;
+
+    if  RealFlag='1' then    //trade_product_config_real
+    begin
+     strsql:=' UPDATE trade_product_config_real SET  TextValue='+WorkState
+              +' WHERE ConfigType='''+RowId+'''';
+    //更改 trade_product_config 的模式
+     Fun_ExecSql(strsql,Fdq_pub);
+
+     strsql:='select  * from  trade_product_config_real  limit  20,10 ';
+      pro_LocateSql(strsql,Fdq_trade_product_config_real);
+
+      Result := TFDJSONDataSets.Create;
+  // Add departments dataset
+    TFDJSONDataSetsWriter.ListAdd(Result, 'trade_product_config_real', Fdq_trade_product_config_real);
+
+   //  Fdq_trade_product_config_real.Free;
+    end;
+
+
+
+   //  2. 通过json 把数据传回本地
+
+ except
+   exit;
+end;
+
+end;
+
 function TServer_DataModule.GetUpdateUserTelList(const strUser,
   strTel: string): TFDJSONDataSets;
 var
@@ -215,7 +292,7 @@ begin
 
     Result := TFDJSONDataSets.Create;
   // Add departments dataset
-    TFDJSONDataSetsWriter.ListAdd(Result, 'Symbols', Fdq_symbols);
+    TFDJSONDataSetsWriter.ListAdd(Result, 'Sys_User', Fdq_tel);
 
 
 end;

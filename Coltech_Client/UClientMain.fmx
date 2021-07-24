@@ -1,9 +1,10 @@
 object FClientMain: TFClientMain
   Left = 0
   Top = 0
+  ActiveControl = TabItem3
   Caption = #36816#32500#23567#24037#20855
   ClientHeight = 728
-  ClientWidth = 832
+  ClientWidth = 1005
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -35,19 +36,19 @@ object FClientMain: TFClientMain
           PNG = {
             89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
             61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-            018549444154384FB5D2CF2B83711C07F0F7F36C33B62952D84D9A8B7272E3A0
-            C441FC0BCA7F200EDA41898B7240DC1673E44648512ED65A38614D295B8DCC4C
-            64B6F6FCF83ECFC7F6F4A57D6B8683D7E5FB3C9FCFE7793F7D9FE78BFF3343F2
-            E4AEBA7495D694E0393BE8DBA006DEF9D9E8A63E727CAD25A94CEA4553B62EF4
-            393EF20DBFD9143865FBAF39CDE4CF094EE226CD1EAA2B7CDA22F3D532D1C316
-            067DF27083DB21F192E5210BAC9F31647206DE5572F1B24508B049A058DAC0D1
-            8D81FB37826E0091A4897082C15B0FD4DAF9601921E0133308E1B881D5908ED7
-            BC09770D6F545031A0442E763493DF5421043CE50D4F3A47D675B5B79613029A
-            DDB65C69BD4C113E837E22042826E4E823E07102791528E8BC518510602FFE05
-            95116E9F814C1EA873F04615424056A1426F9B0C5771FFEFBAB885ACC6D87694
-            F67662F21A2F598403033F350EF9B4A9810E8CB5B8E5D6BBE259E86C96104AD0
-            553841CB917167904F7E1103B8AE456AEFF62AF32E87D49F2AD882DB21FB3402
-            D22FBEC89F011FBF12B8F7C461CA640000000049454E44AE426082}
+            018549444154384FB5D2CF2B83711C07F0F7F36C33B6293F6AEC2671514E6E1C
+            9438887F41F90FC4413B2871510E88DB628EDC26A428176B2D9CC69A52B61A99
+            D984D9DAF3FB637BFAD2BEC570F0BA7C9FE7F3F93CEFA7EFF37CF17F66499CDA
+            9597236949F29F6B07FD9BD4C03A3F1BDB52478FAF942455486525693BA2CEB3
+            916F788D66DFA9B6FF94930CF61CE7246ED0DCA1BCCAA64D225B4D93BDDAE250
+            8738D2546F1758C9749F0336CE3464F23ADE6472B0B2890BB008A0585AC7D1B5
+            8EBB5782AA03E1A481504283A71EA8B5B2C10A5CC0074D2784E23AD6822A9E0B
+            069C35ACF1852F03CAC4524731D84D155CC0634177A5F3645E577B6B252EC0ED
+            B4E4CBEB458AF011F4132E403220461F00971D28C84051658D2AB8006BE92FC8
+            1AE1260B640A409D8D35AAE002721215FBDA44384AFB7F53F92DBC288A1688D2
+            DE4E4C5C6725137760E0A5C6E10E657AB013E32D4EB1F5B67416BADC028209BA
+            0C2568253C61F7B3C94F7C00D3BD44ED3D1E69C161130652458B3F10B4CEC027
+            FCE28BFC19F00E9DE2B8EBB3CE65EB0000000049454E44AE426082}
           FileName = 
             'F:\soft\delphi\Coltech_DataSnap\Coltech_Client\image\16\'#25299#25169#22270'_'#26381#21153#22120'.' +
             'png'
@@ -61,7 +62,7 @@ object FClientMain: TFClientMain
   end
   object Panel2: TPanel
     Align = Top
-    Size.Width = 832.000000000000000000
+    Size.Width = 1005.000000000000000000
     Size.Height = 149.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
@@ -254,7 +255,7 @@ object FClientMain: TFClientMain
   end
   object Panel3: TPanel
     Align = Client
-    Size.Width = 832.000000000000000000
+    Size.Width = 1005.000000000000000000
     Size.Height = 579.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
@@ -263,24 +264,24 @@ object FClientMain: TFClientMain
       Images = ImageList1
       Padding.Top = 3.000000000000000000
       Margins.Top = 3.000000000000000000
-      Size.Width = 832.000000000000000000
+      Size.Width = 1005.000000000000000000
       Size.Height = 576.000000000000000000
       Size.PlatformDefault = False
-      TabIndex = 0
+      TabIndex = 2
       TabOrder = 1
       TabPosition = PlatformDefault
       Sizes = (
-        832s
+        1005s
         547s
-        832s
+        1005s
         547s
-        832s
+        1005s
         547s)
       object TabItem1: TTabItem
         CustomIcon = <
           item
           end>
-        IsSelected = True
+        IsSelected = False
         ImageIndex = 2
         Size.Width = 84.000000000000000000
         Size.Height = 26.000000000000000000
@@ -292,11 +293,11 @@ object FClientMain: TFClientMain
         ExplicitSize.cy = 26.000000000000000000
         object Panel4: TPanel
           Align = Top
-          Size.Width = 832.000000000000000000
+          Size.Width = 1005.000000000000000000
           Size.Height = 65.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          object SpeedButton1: TSpeedButton
+          object btnSymbols: TSpeedButton
             Images = ImageList1
             ImageIndex = 3
             Position.X = 392.000000000000000000
@@ -305,7 +306,7 @@ object FClientMain: TFClientMain
             Size.Height = 22.000000000000000000
             Size.PlatformDefault = False
             Text = ' '#26597#35810'  '
-            OnClick = SpeedButton1Click
+            OnClick = btnSymbolsClick
             object FloatAnimation1: TFloatAnimation
               Duration = 0.200000002980232200
               PropertyName = 'Opacity'
@@ -337,11 +338,12 @@ object FClientMain: TFClientMain
           Align = Client
           CanFocus = True
           ClipChildren = True
-          Size.Width = 832.000000000000000000
+          Size.Width = 1005.000000000000000000
           Size.Height = 482.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
-          Viewport.Width = 828.000000000000000000
+          Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
+          Viewport.Width = 1001.000000000000000000
           Viewport.Height = 457.000000000000000000
         end
       end
@@ -361,11 +363,11 @@ object FClientMain: TFClientMain
         ExplicitSize.cy = 26.000000000000000000
         object Panel5: TPanel
           Align = Top
-          Size.Width = 832.000000000000000000
+          Size.Width = 1005.000000000000000000
           Size.Height = 97.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          object SpeedButton2: TSpeedButton
+          object btnTel: TSpeedButton
             Images = ImageList1
             ImageIndex = 6
             Position.X = 392.000000000000000000
@@ -374,7 +376,7 @@ object FClientMain: TFClientMain
             Size.Height = 22.000000000000000000
             Size.PlatformDefault = False
             Text = #25191#34892'  '
-            OnClick = SpeedButton1Click
+            OnClick = btnTelClick
             object FloatAnimation3: TFloatAnimation
               Duration = 0.200000002980232200
               PropertyName = 'Opacity'
@@ -391,7 +393,7 @@ object FClientMain: TFClientMain
             Text = #30331#24405#36134#21495#65306
             TabOrder = 3
           end
-          object Edit5: TEdit
+          object edt_LoginName: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             TabOrder = 4
             KeyboardType = Alphabet
@@ -410,7 +412,7 @@ object FClientMain: TFClientMain
             Text = #25163#26426#21495#65306
             TabOrder = 1
           end
-          object Edit6: TEdit
+          object edt_Tel: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             TabOrder = 2
             KeyboardType = Alphabet
@@ -425,11 +427,12 @@ object FClientMain: TFClientMain
           Align = Client
           CanFocus = True
           ClipChildren = True
-          Size.Width = 832.000000000000000000
+          Size.Width = 1005.000000000000000000
           Size.Height = 450.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
-          Viewport.Width = 828.000000000000000000
+          Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
+          Viewport.Width = 1001.000000000000000000
           Viewport.Height = 425.000000000000000000
         end
       end
@@ -437,7 +440,7 @@ object FClientMain: TFClientMain
         CustomIcon = <
           item
           end>
-        IsSelected = False
+        IsSelected = True
         ImageIndex = 1
         Size.Width = 108.000000000000000000
         Size.Height = 26.000000000000000000
@@ -449,11 +452,11 @@ object FClientMain: TFClientMain
         ExplicitSize.cy = 26.000000000000000000
         object Panel6: TPanel
           Align = Top
-          Size.Width = 832.000000000000000000
+          Size.Width = 1005.000000000000000000
           Size.Height = 97.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          object SpeedButton3: TSpeedButton
+          object btnAutoHand: TSpeedButton
             Images = ImageList1
             ImageIndex = 6
             Position.X = 266.000000000000000000
@@ -462,7 +465,7 @@ object FClientMain: TFClientMain
             Size.Height = 22.000000000000000000
             Size.PlatformDefault = False
             Text = #25191#34892'  '
-            OnClick = SpeedButton1Click
+            OnClick = btnAutoHandClick
             object FloatAnimation4: TFloatAnimation
               Duration = 0.200000002980232200
               PropertyName = 'Opacity'
@@ -488,7 +491,7 @@ object FClientMain: TFClientMain
             Text = #35760#24405#21495#20301#32622#65306
             TabOrder = 1
           end
-          object ComboBox1: TComboBox
+          object cmb_antohand: TComboBox
             Items.Strings = (
               '0:'#38750#23454#30424#25163#21160#30830#35748' '
               '1:'#23454#30424#33258#21160#25104#20132' '
@@ -500,7 +503,7 @@ object FClientMain: TFClientMain
             Size.PlatformDefault = False
             TabOrder = 8
           end
-          object NumberBox1: TNumberBox
+          object NumBox: TNumberBox
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             TabOrder = 9
             Cursor = crIBeam
@@ -513,9 +516,9 @@ object FClientMain: TFClientMain
             Size.PlatformDefault = False
           end
         end
-        object GridPanelLayout2: TGridPanelLayout
+        object GridPanelLayout1: TGridPanelLayout
           Align = Client
-          Size.Width = 832.000000000000000000
+          Size.Width = 1005.000000000000000000
           Size.Height = 450.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
@@ -534,30 +537,23 @@ object FClientMain: TFClientMain
             end
             item
               Column = 1
-              Control = Panel10
+              Control = Panel9
               Row = 0
-            end
-            item
-              Column = 0
-              Control = Panel12
-              Row = 1
             end>
           RowCollection = <
             item
               Value = 100.000000000000000000
-            end
-            item
-              SizeStyle = Auto
             end>
           object Panel8: TPanel
             Align = Client
-            Size.Width = 416.000000000000000000
-            Size.Height = 330.000000000000000000
+            Margins.Right = 2.000000000000000000
+            Size.Width = 500.500000000000000000
+            Size.Height = 450.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 1
+            TabOrder = 2
             object Panel15: TPanel
               Align = Top
-              Size.Width = 416.000000000000000000
+              Size.Width = 500.500000000000000000
               Size.Height = 30.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 2
@@ -571,71 +567,52 @@ object FClientMain: TFClientMain
                 TabOrder = 2
               end
             end
-            object StringGrid3: TStringGrid
+            object StrGrd_trade_product_config: TStringGrid
               Align = Client
               CanFocus = True
               ClipChildren = True
-              Size.Width = 416.000000000000000000
-              Size.Height = 300.000000000000000000
+              Size.Width = 500.500000000000000000
+              Size.Height = 420.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
-              Viewport.Width = 412.000000000000000000
-              Viewport.Height = 275.000000000000000000
+              Viewport.Width = 480.500000000000000000
+              Viewport.Height = 379.000000000000000000
             end
           end
-          object Panel10: TPanel
+          object Panel9: TPanel
             Align = Client
-            Size.Width = 416.000000000000000000
-            Size.Height = 330.000000000000000000
+            Margins.Left = 2.000000000000000000
+            Size.Width = 500.500000000000000000
+            Size.Height = 450.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 2
-            object Panel16: TPanel
+            TabOrder = 1
+            object Panel10: TPanel
               Align = Top
-              Size.Width = 416.000000000000000000
+              Size.Width = 500.500000000000000000
               Size.Height = 30.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 3
+              TabOrder = 2
               object Label14: TLabel
-                Position.X = 17.000000000000000000
-                Position.Y = 8.000000000000000000
-                Size.Width = 320.000000000000000000
+                Position.X = 13.000000000000000000
+                Position.Y = 7.000000000000000000
+                Size.Width = 268.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
-                Text = #25104#20132#27169#24335' ->'#25968#25454#34920#65306'trade_product_config_real'
+                Text = #25104#20132#27169#24335' ->'#25968#25454#34920#65306'trade_product_config'
                 TabOrder = 2
               end
             end
-            object StringGrid4: TStringGrid
+            object Grd_bdso_trade_product_config_real: TStringGrid
               Align = Client
               CanFocus = True
               ClipChildren = True
-              Size.Width = 416.000000000000000000
-              Size.Height = 300.000000000000000000
+              Size.Width = 500.500000000000000000
+              Size.Height = 420.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
-              Viewport.Width = 412.000000000000000000
-              Viewport.Height = 275.000000000000000000
-            end
-          end
-          object Panel12: TPanel
-            Align = Client
-            Opacity = 0.000000000000000000
-            Size.Width = 416.000000000000000000
-            Size.Height = 120.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 0
-            object Panel13: TPanel
-              Position.X = 64.000000000000000000
-              Position.Y = -24.000000000000000000
-              Size.Width = 9.000000000000000000
-              Size.Height = 33.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 1
-            end
-            object Panel14: TPanel
-              Position.X = 232.000000000000000000
-              Position.Y = 128.000000000000000000
-              TabOrder = 2
+              Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
+              Viewport.Width = 480.500000000000000000
+              Viewport.Height = 379.000000000000000000
             end
           end
         end
@@ -645,14 +622,6 @@ object FClientMain: TFClientMain
   object PopupMenu1: TPopupMenu
     Left = 592
     Top = 64
-  end
-  object FDStanStorageBinLink1: TFDStanStorageBinLink
-    Left = 385
-    Top = 457
-  end
-  object FDStanStorageJSONLink1: TFDStanStorageJSONLink
-    Left = 409
-    Top = 529
   end
   object ImageList1: TImageList
     Source = <
@@ -866,7 +835,7 @@ object FClientMain: TFClientMain
     Left = 473
     Top = 217
   end
-  object FDMemTable1: TFDMemTable
+  object Fmtbl_Symbols: TFDMemTable
     FetchOptions.AssignedValues = [evMode]
     FetchOptions.Mode = fmAll
     ResourceOptions.AssignedValues = [rvSilentMode]
@@ -874,25 +843,175 @@ object FClientMain: TFClientMain
     UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
     UpdateOptions.CheckRequired = False
     UpdateOptions.AutoCommitUpdates = True
-    Left = 169
-    Top = 225
+    Left = 33
+    Top = 353
   end
-  object BindSourceDB1: TBindSourceDB
-    DataSet = FDMemTable1
+  object bdso_Symbols: TBindSourceDB
+    DataSet = Fmtbl_Symbols
     ScopeMappings = <>
-    Left = 400
-    Top = 352
+    Left = 40
+    Top = 424
   end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 328
-    Top = 221
+    Left = 32
+    Top = 301
     object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
       Category = 'Quick Bindings'
-      DataSource = BindSourceDB1
+      DataSource = bdso_Symbols
       GridControl = StringGrid1
       Columns = <>
     end
+    object LinkGridToDataSourcebdso_UserTel: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = bdso_UserTel
+      GridControl = StringGrid2
+      Columns = <>
+    end
+    object LinkGridToDataSourceBindSourceDB12: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = bdso_trade_product_config
+      GridControl = StrGrd_trade_product_config
+      Columns = <
+        item
+          MemberName = 'ConfigType'
+        end
+        item
+          MemberName = 'TextValue'
+        end
+        item
+          MemberName = 'Remark'
+        end>
+    end
+    object LinkGridToDataSourcebdso_trade_product_config_real: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = bdso_trade_product_config_real
+      GridControl = Grd_bdso_trade_product_config_real
+      Columns = <>
+    end
+  end
+  object FMtbl_UserTel: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 193
+    Top = 361
+    object FMtbl_UserTelUserID: TIntegerField
+      Alignment = taCenter
+      DisplayLabel = 'Id'
+      DisplayWidth = 5
+      FieldName = 'UserID'
+    end
+    object FMtbl_UserTelUserName: TWideStringField
+      DisplayLabel = #22995#21517
+      DisplayWidth = 16
+      FieldName = 'UserName'
+    end
+    object FMtbl_UserTelLoginName: TWideStringField
+      DisplayLabel = #30331#24405#36134#21495
+      DisplayWidth = 18
+      FieldName = 'LoginName'
+    end
+    object FMtbl_UserTelMobile: TWideStringField
+      DisplayLabel = #25163#26426#21495#30721
+      DisplayWidth = 20
+      FieldName = 'Mobile'
+      Size = 64
+    end
+    object FMtbl_UserTelLastLoginTime: TDateTimeField
+      DisplayLabel = 'Last'#30331#24405#26102#38388
+      FieldName = 'LastLoginTime'
+    end
+    object FMtbl_UserTelLastLoginIP: TWideStringField
+      DisplayLabel = #30331#24405'IP'
+      DisplayWidth = 15
+      FieldName = 'LastLoginIP'
+      Size = 15
+    end
+    object FMtbl_UserTelStatus: TBooleanField
+      Alignment = taCenter
+      DisplayLabel = #29366#24577
+      FieldName = 'Status'
+    end
+    object FMtbl_UserTelIsDelete: TBooleanField
+      Alignment = taCenter
+      DisplayLabel = #21024#38500
+      FieldName = 'IsDelete'
+    end
+  end
+  object bdso_UserTel: TBindSourceDB
+    DataSet = FMtbl_UserTel
+    ScopeMappings = <>
+    Left = 184
+    Top = 412
+  end
+  object FDStanStorageBinLink2: TFDStanStorageBinLink
+    Left = 41
+    Top = 489
+  end
+  object FDStanStorageJSONLink2: TFDStanStorageJSONLink
+    Left = 33
+    Top = 545
+  end
+  object FMtbl_trade_product_config: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 321
+    Top = 369
+    object FMtbl_trade_product_configConfigType: TIntegerField
+      FieldName = 'ConfigType'
+    end
+    object FMtbl_trade_product_configTextValue: TWideStringField
+      FieldName = 'TextValue'
+      Size = 40
+    end
+    object FMtbl_trade_product_configRemark: TWideStringField
+      FieldName = 'Remark'
+      Size = 100
+    end
+  end
+  object bdso_trade_product_config: TBindSourceDB
+    DataSet = FMtbl_trade_product_config
+    ScopeMappings = <>
+    Left = 320
+    Top = 440
+  end
+  object Fmtbl_trade_product_config_real: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 833
+    Top = 417
+    object IntegerField1: TIntegerField
+      FieldName = 'ConfigType'
+    end
+    object WideStringField1: TWideStringField
+      FieldName = 'TextValue'
+      Size = 40
+    end
+    object WideStringField2: TWideStringField
+      FieldName = 'Remark'
+      Size = 100
+    end
+  end
+  object bdso_trade_product_config_real: TBindSourceDB
+    DataSet = Fmtbl_trade_product_config_real
+    ScopeMappings = <>
+    Left = 592
+    Top = 432
   end
 end

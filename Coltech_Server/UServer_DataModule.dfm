@@ -32,7 +32,7 @@ object Server_DataModule: TServer_DataModule
       ' select * From funding_system.trade_product '
       'where  ProductCode=:a')
     Left = 80
-    Top = 280
+    Top = 272
     ParamData = <
       item
         Name = 'A'
@@ -42,12 +42,12 @@ object Server_DataModule: TServer_DataModule
       end>
   end
   object FDStanStorageJSONLink1: TFDStanStorageJSONLink
-    Left = 232
-    Top = 240
+    Left = 72
+    Top = 392
   end
   object FDStanStorageBinLink1: TFDStanStorageBinLink
-    Left = 248
-    Top = 184
+    Left = 72
+    Top = 336
   end
   object Fdq_pub: TFDQuery
     Connection = FDConnection1
@@ -58,7 +58,21 @@ object Server_DataModule: TServer_DataModule
     Connection = FDConnection1
     SQL.Strings = (
       'select * from sys_user')
-    Left = 472
-    Top = 56
+    Left = 216
+    Top = 64
+  end
+  object Fdq_trade_product_config: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from sys_user')
+    Left = 224
+    Top = 144
+  end
+  object Fdq_trade_product_config_real: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from sys_user')
+    Left = 224
+    Top = 264
   end
 end
