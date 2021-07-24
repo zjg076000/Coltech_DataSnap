@@ -90,6 +90,7 @@ type
     procedure btnConnClick(Sender: TObject);
     procedure RadioButton1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure RadioButton4Change(Sender: TObject);
   private
     dbUser,dbPass,dbName,dbPort,dbServer:string;
     //读取数据库到到主界面连接信息
@@ -121,9 +122,9 @@ begin
   begin
   with TIniFile.Create(strIniFile) do
     try
-        dbUser := ReadString(DbSection, 'User_Name', '');
-        dbPass := ReadString(DbSection, 'Password', '');
-       // cmbDatabase.:=ReadString(DbSection, 'Database', '');
+        edtAccount.text := ReadString(DbSection, 'User_Name', '');
+        edtPassword.text := ReadString(DbSection, 'Password', '');
+        cmbDatabase.ItemIndex:=0;//:=ReadString(DbSection, 'Database', '');
         edtServer.text := ReadString(DbSection, 'Server', '');
         edtPort.Text  := ReadString(DbSection, 'port', '');
     finally
@@ -136,25 +137,27 @@ end;
 
 procedure TFClientMain.btnConnClick(Sender: TObject);
 begin
+
      if btnConn.ImageIndex=4 then
      begin
         btnConn.ImageIndex:=5;
          btnConn.Text:='已连接';
-     end
-     else
+     end ;
+
+    //设置要链接的数据库
+    ClientModuleUnit1.ClientModule1.Server_DataModuleClient.SetConnDabaseConfig(
+        '',cmbDatabase.Selected.Text,'','','');
+
+    { else
       begin
         btnConn.ImageIndex:=4;
          btnConn.Text:='未上线';
-     end
+     end    }
 
 end;
 
 procedure TFClientMain.RadioButton1Click(Sender: TObject);
 begin
-
-
-   // ClientModule1.DSRestConnection1.Host:='10.0.2.9';
-   // ClientModule1.DSRestConnection1.Reset;
 
 
   var str:=trim(TRadioButton(Sender).Text);
@@ -163,7 +166,8 @@ begin
 
     if str='1061-9.0' then
     begin
-     ConnRemoteIP:='47.93.11.161';
+    // ConnRemoteIP:='47.93.11.161';
+      ConnRemoteIP:='192.168.128.148';
       proc_readini('1');
     end
     else if str='1069' then
@@ -190,9 +194,25 @@ begin
       ClientModule1.DSRestConnection1.Reset;
 
     end;
-
+  
 
     //
+
+
+end;
+
+procedure TFClientMain.RadioButton4Change(Sender: TObject);
+begin
+     // ClientModule1.DSRestConnection1.Host:='10.0.2.9';
+   // ClientModule1.DSRestConnection1.Reset;
+ // if True then
+   btnConn.ImageIndex:=4;
+   btnConn.Text:='未上线';
+
+   FDMemTable1.close;
+
+  //关闭 服务器 Fdconnection
+
 
 
 end;
@@ -204,7 +224,7 @@ begin
   // FDMemTable1.EmptyDataSet;
   //  FDMemTable1.close;
    // FDMemTable1.open;
-
+//   FDMemTable1.FREE;
    jds := ClientModuleUnit1.ClientModule1.Server_DataModuleClient.GetSymbolsList(trim(Edt_symbols.Text));
   // if FDMemTable1 then
    if FDMemTable1.Active=True then      FDMemTable1.Close;

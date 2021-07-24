@@ -81,7 +81,7 @@ begin
         dbServer := ReadString('DataBase', 'Server', '');
         dbPort  := ReadString('DataBase', 'port', '');
     finally
-     Free;
+     //Free;
     end;
 
    end;
@@ -96,6 +96,7 @@ begin
        sql.text:=strsql;
        execsql;
     end;
+   Fdq.Free;
 end;
 
 function TServer_DataModule.Fun_WhereSql(EdtStr,FieldValue: string): string;
@@ -147,6 +148,7 @@ end;
 procedure TServer_DataModule.proc_ConnDataBase;
 begin
    proc_readini;
+   FDConnection1.close;
     with FDConnection1 do begin
     Close;
     // create temporary connection definition
@@ -203,6 +205,8 @@ begin
 
    Fun_ExecSql(strsql,Fdq_pub);
 
+   Fdq_pub.Free;
+
   // 1. 查询更新接口  检验   查询到已经更新用户的数据
    strwhere:=Fun_WhereSql(strUser,'LoginName');
    proc_Locate(strUser,'sys_user', 'LoginName', Fdq_tel);
@@ -233,24 +237,30 @@ begin
   if FileExists(strIniFile) then
   begin
    ini:=TIniFile.Create(strIniFile);
-  with ini do
+   ini.writestring('DataBase', 'Database', dbName);
+  end;
+
+   proc_ConnDataBase;
+  {with ini do
     try
      //  writestring('DataBase','User_Name',变量或字符串值);
-       WriteString('DataBase', 'User_Name', dbUser);
-       writestring('DataBase', 'Password', dbPass);
-       writestring('DataBase', 'Database', dbName);
-       writestring('DataBase', 'Server', dbServer);
-       writestring('DataBase', 'port', dbPort);
+      //WriteString('DataBase', 'User_Name', dbUser);
+     //  writestring('DataBase', 'Password', dbPass);
+
+      // writestring('DataBase', 'Server', dbServer);
+     //  writestring('DataBase', 'port', dbPort);
     finally
-     Free;
+    // Free;
     end;
 
-   end;
+   end;   }
 
   // 断下数据库 ，重新连接数据库
 
-  FDConnection1.close;
-  proc_ConnDataBase;
+//  FDConnection1.close;
+ // FDConnection1.FreeOnRelease;
+ // FDConnection1.Free;
+
 
 end;
 

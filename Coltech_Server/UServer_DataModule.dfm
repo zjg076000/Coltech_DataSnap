@@ -10,7 +10,8 @@ object Server_DataModule: TServer_DataModule
       'Password=fd12345@coltech.comdba'
       'Server=10.0.2.28'
       'Port=12336'
-      'DriverID=MySQL')
+      'DriverID=MySQL'
+      'CharacterSet=utf8')
     LoginPrompt = False
     Left = 88
     Top = 48
@@ -57,7 +58,7 @@ object Server_DataModule: TServer_DataModule
     Connection = FDConnection1
     SQL.Strings = (
       'select * from sys_user')
-    Left = 752
-    Top = 16
+    Left = 472
+    Top = 56
   end
 end
