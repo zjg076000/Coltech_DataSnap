@@ -14,13 +14,14 @@ uses
   FireDAC.Stan.StorageJSON, FireDAC.Stan.StorageBin,FireDACJSONReflect,
   FMX.Edit, System.ImageList, FMX.ImgList, FireDAC.Stan.Async, FireDAC.DApt,
   FMX.Ani, FMX.ListBox, FMX.Objects, FMX.Menus, FMX.EditBox, FMX.NumberBox,
-  FMX.Layouts,inifiles;
+  FMX.Layouts,inifiles, FMX.WebBrowser, FMX.DateTimeCtrls, FMX.Memo.Types,
+  FMX.Memo;
 
 type
   TFClientMain = class(TForm)
     Panel1: TPanel;
     Label1: TLabel;
-    Panel2: TPanel;
+    pnl_datainit: TPanel;
     Panel3: TPanel;
     TabControl1: TTabControl;
     TabItem1: TTabItem;
@@ -64,12 +65,6 @@ type
     Label10: TLabel;
     Label11: TLabel;
     PopupMenu1: TPopupMenu;
-    Label12: TLabel;
-    Panel7: TPanel;
-    RadioButton1: TRadioButton;
-    RadioButton2: TRadioButton;
-    RadioButton3: TRadioButton;
-    RadioButton4: TRadioButton;
     cmb_antohand: TComboBox;
     NumBox: TNumberBox;
     FMtbl_UserTel: TFDMemTable;
@@ -106,6 +101,55 @@ type
     WideStringField2: TWideStringField;
     bdso_trade_product_config_real: TBindSourceDB;
     LinkGridToDataSourcebdso_trade_product_config_real: TLinkGridToDataSource;
+    StyleBook1: TStyleBook;
+    系统周统计: TTabItem;
+    浏览器: TTabItem;
+    数据查询工具: TTabItem;
+    Panel11: TPanel;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    Label15: TLabel;
+    Panel12: TPanel;
+    Panel13: TPanel;
+    edtWeb: TEdit;
+    SpeedButton5: TSpeedButton;
+    FloatAnimation10: TFloatAnimation;
+    SpeedButton6: TSpeedButton;
+    FloatAnimation11: TFloatAnimation;
+    btn_web: TSpeedButton;
+    FloatAnimation6: TFloatAnimation;
+    web: TWebBrowser;
+    Panel14: TPanel;
+    Panel7: TPanel;
+    Label12: TLabel;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    RadioButton3: TRadioButton;
+    RadioButton4: TRadioButton;
+    Panel17: TPanel;
+    chkDatabase: TCheckBox;
+    Panel2: TPanel;
+    Panel16: TPanel;
+    SpeedButton1: TSpeedButton;
+    FloatAnimation5: TFloatAnimation;
+    btn_addsql: TSpeedButton;
+    FloatAnimation7: TFloatAnimation;
+    btn_execsql: TSpeedButton;
+    FloatAnimation8: TFloatAnimation;
+    Panel18: TPanel;
+    pnl_tableBar: TPanel;
+    StringGrid3: TStringGrid;
+    Panel19: TPanel;
+    StringGrid4: TStringGrid;
+    Panel20: TPanel;
+    SpeedButton2: TSpeedButton;
+    FloatAnimation9: TFloatAnimation;
+    Label16: TLabel;
+    DateEdit1: TDateEdit;
+    Label17: TLabel;
+    DateEdit2: TDateEdit;
+    pnl_sql: TPanel;
+    Memo1: TMemo;
     procedure btnSymbolsClick(Sender: TObject);
     procedure btnConnClick(Sender: TObject);
     procedure RadioButton1Click(Sender: TObject);
@@ -113,6 +157,13 @@ type
     procedure RadioButton4Change(Sender: TObject);
     procedure btnTelClick(Sender: TObject);
     procedure btnAutoHandClick(Sender: TObject);
+    procedure CornerButton2Click(Sender: TObject);
+    procedure btn_webClick(Sender: TObject);
+    procedure chkDatabaseClick(Sender: TObject);
+    procedure btn_addsqlClick(Sender: TObject);
+    procedure btn_execsqlClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton6Click(Sender: TObject);
   private
     dbUser,dbPass,dbName,dbPort,dbServer:string;
     ConnRemoteIP,AppStr:string;
@@ -316,6 +367,39 @@ begin
 
 end;
 
+procedure TFClientMain.SpeedButton1Click(Sender: TObject);
+begin
+    if trim(TSpeedButton(sender).text)='数据表-导航栏' then
+   begin
+      pnl_tablebar.visible:=true;
+      TSpeedButton(sender).text:=' 数据表-导航栏 ';
+
+   end
+   else
+   begin
+      pnl_tablebar.visible:=false;
+
+      TSpeedButton(sender).text:=' 隐藏.数据表-导航栏 ';
+   end;
+end;
+
+procedure TFClientMain.SpeedButton6Click(Sender: TObject);
+
+var
+  pt: TPoint;
+  r: TRect;
+begin
+  {pt := Point(SpeedButton6.Position.Point.X, Edit1.Left);
+  pt := ClientToScreen(pt);
+  Edit2.Text := inttostr(pt.X);
+  Edit3.Text := inttostr(pt.y);
+  Mouse.CursorPos := Point(pt.X, pt.y);
+  GetWindowRect(Form2.Handle, r);
+  Mouse.CursorPos := Point(r.Left + 20, r.Top + 150 + 20);  }
+
+
+end;
+
 procedure TFClientMain.btnSymbolsClick(Sender: TObject);
 var  jds:TFDJSONDataSets;
 begin
@@ -352,6 +436,49 @@ begin
    FMtbl_UserTel.AppendData(TFDJsonDataSetsReader.GetListValue(jds,0));
 
 
+end;
+
+procedure TFClientMain.btn_addsqlClick(Sender: TObject);
+begin
+   if trim(TSpeedButton(sender).text)='增加查询' then
+   begin
+      pnl_sql.visible:=true;
+      TSpeedButton(sender).text:=' 关闭查询 ';
+      btn_execsql.Enabled:=true;
+   end
+   else
+   begin
+      pnl_sql.visible:=false;
+      btn_execsql.Enabled:=false;
+      TSpeedButton(sender).text:=' 增加查询 ';
+   end;
+
+end;
+
+procedure TFClientMain.btn_execsqlClick(Sender: TObject);
+begin
+   {  if chkdatabase.IsChecked=true  then
+        pnl_datainit.Visible:=true
+     else
+         pnl_datainit.Visible:=false;      }
+end;
+
+procedure TFClientMain.btn_webClick(Sender: TObject);
+begin
+  web.Navigate(edtWeb.Text);
+end;
+
+procedure TFClientMain.chkDatabaseClick(Sender: TObject);
+begin
+     if chkdatabase.IsChecked=true  then
+        pnl_datainit.Visible:=true
+     else
+         pnl_datainit.Visible:=false;
+end;
+
+procedure TFClientMain.CornerButton2Click(Sender: TObject);
+begin
+     //  PopupMenu1.Popup(CornerButton2.)
 end;
 
 end.

@@ -55,6 +55,17 @@ type
     function ReverseString(Value: string): string;
     //从服务端 取得 新股代码 返回到客户端
     function GetSymbolsList(const StrSymblos: string):TFDJSONDataSets;
+
+    //取得数据库中所有的表
+     function GetDataBaseAllTables(const StrDatabase: string):TFDJSONDataSets;
+
+   //取得数据库中所有的表的结构
+     function GetTableNameByFields(const StrDatabase,StrTable: string):TFDJSONDataSets;
+
+    //根据sql 条件 取得数据库表的记录
+     function GetSqLByRecords(const strsql: string):TFDJSONDataSets;
+
+
     //更改用户手机号
     function GetUpdateUserTelList(const strUser,strTel:string):TFDJSONDataSets;
 
@@ -202,6 +213,37 @@ begin
   Result := Value;
 end;
 
+function TServer_DataModule.GetDataBaseAllTables(
+  const StrDatabase: string): TFDJSONDataSets;
+var
+  LDataSets: TFDJSONDataSets;
+begin
+  //打开查询的NEW的股票代码表
+ var strsql:='select table_name from information_schema.tables where '
+       +'table_schema='''+StrDatabase+''' and table_type=''base table'' '
+       +' order by table_name ';
+ pro_LocateSql(strsql, Fdq_pub);
+
+  Result := TFDJSONDataSets.Create;
+  // Add departments dataset
+   TFDJSONDataSetsWriter.ListAdd(Result, 'allTables', Fdq_pub);
+
+end;
+
+function TServer_DataModule.GetSqLByRecords(
+  const strsql: string): TFDJSONDataSets;
+ var
+  LDataSets: TFDJSONDataSets;
+begin
+
+  pro_LocateSql(strsql, Fdq_pub);
+
+  Result := TFDJSONDataSets.Create;
+  // Add departments dataset
+  TFDJSONDataSetsWriter.ListAdd(Result, 'locateSQLRecord', Fdq_pub);
+
+end;
+
 function TServer_DataModule.GetSymbolsList(
   const StrSymblos: string): TFDJSONDataSets;
 var
@@ -215,6 +257,22 @@ begin
 
   TFDJSONDataSetsWriter.ListAdd(Result, 'Symbols', Fdq_symbols);
 
+end;
+
+function TServer_DataModule.GetTableNameByFields(
+  const strDatabase,StrTable: string): TFDJSONDataSets;
+var
+  LDataSets: TFDJSONDataSets;
+begin
+  //打开查询的NEW的股票代码表
+ var strsql:='select column_name from information_schema.columns where '
+       +'table_schema='''+StrDatabase+'''  and table_name='''+StrTable+''''
+       +' order by column_name ';
+  pro_LocateSql(strsql, Fdq_pub);
+
+  Result := TFDJSONDataSets.Create;
+  // Add departments dataset
+   TFDJSONDataSetsWriter.ListAdd(Result, 'TableFields', Fdq_pub);
 end;
 
 function TServer_DataModule.GetUpdateTradeProductConfig(const RowId,

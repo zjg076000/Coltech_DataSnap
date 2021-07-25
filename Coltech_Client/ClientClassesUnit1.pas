@@ -1,6 +1,6 @@
 //
 // Created by the DataSnap proxy generator.
-// 2021/7/24 16:47:28
+// 2021/7/25 21:06:27
 //
 
 unit ClientClassesUnit1;
@@ -20,6 +20,12 @@ type
     FReverseStringCommand: TDSRestCommand;
     FGetSymbolsListCommand: TDSRestCommand;
     FGetSymbolsListCommand_Cache: TDSRestCommand;
+    FGetDataBaseAllTablesCommand: TDSRestCommand;
+    FGetDataBaseAllTablesCommand_Cache: TDSRestCommand;
+    FGetTableNameByFieldsCommand: TDSRestCommand;
+    FGetTableNameByFieldsCommand_Cache: TDSRestCommand;
+    FGetSqLByRecordsCommand: TDSRestCommand;
+    FGetSqLByRecordsCommand_Cache: TDSRestCommand;
     FGetUpdateUserTelListCommand: TDSRestCommand;
     FGetUpdateUserTelListCommand_Cache: TDSRestCommand;
     FGetUpdateTradeProductConfigCommand: TDSRestCommand;
@@ -34,6 +40,12 @@ type
     function ReverseString(Value: string; const ARequestFilter: string = ''): string;
     function GetSymbolsList(StrSymblos: string; const ARequestFilter: string = ''): TFDJSONDataSets;
     function GetSymbolsList_Cache(StrSymblos: string; const ARequestFilter: string = ''): IDSRestCachedTFDJSONDataSets;
+    function GetDataBaseAllTables(StrDatabase: string; const ARequestFilter: string = ''): TFDJSONDataSets;
+    function GetDataBaseAllTables_Cache(StrDatabase: string; const ARequestFilter: string = ''): IDSRestCachedTFDJSONDataSets;
+    function GetTableNameByFields(StrDatabase: string; StrTable: string; const ARequestFilter: string = ''): TFDJSONDataSets;
+    function GetTableNameByFields_Cache(StrDatabase: string; StrTable: string; const ARequestFilter: string = ''): IDSRestCachedTFDJSONDataSets;
+    function GetSqLByRecords(strsql: string; const ARequestFilter: string = ''): TFDJSONDataSets;
+    function GetSqLByRecords_Cache(strsql: string; const ARequestFilter: string = ''): IDSRestCachedTFDJSONDataSets;
     function GetUpdateUserTelList(strUser: string; strTel: string; const ARequestFilter: string = ''): TFDJSONDataSets;
     function GetUpdateUserTelList_Cache(strUser: string; strTel: string; const ARequestFilter: string = ''): IDSRestCachedTFDJSONDataSets;
     function GetUpdateTradeProductConfig(RowId: string; WorkState: string; RealFlag: string; const ARequestFilter: string = ''): TFDJSONDataSets;
@@ -74,6 +86,44 @@ const
   TServer_DataModule_GetSymbolsList_Cache: array [0..1] of TDSRestParameterMetaData =
   (
     (Name: 'StrSymblos'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: ''; Direction: 4; DBXType: 26; TypeName: 'String')
+  );
+
+  TServer_DataModule_GetDataBaseAllTables: array [0..1] of TDSRestParameterMetaData =
+  (
+    (Name: 'StrDatabase'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: ''; Direction: 4; DBXType: 37; TypeName: 'TFDJSONDataSets')
+  );
+
+  TServer_DataModule_GetDataBaseAllTables_Cache: array [0..1] of TDSRestParameterMetaData =
+  (
+    (Name: 'StrDatabase'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: ''; Direction: 4; DBXType: 26; TypeName: 'String')
+  );
+
+  TServer_DataModule_GetTableNameByFields: array [0..2] of TDSRestParameterMetaData =
+  (
+    (Name: 'StrDatabase'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: 'StrTable'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: ''; Direction: 4; DBXType: 37; TypeName: 'TFDJSONDataSets')
+  );
+
+  TServer_DataModule_GetTableNameByFields_Cache: array [0..2] of TDSRestParameterMetaData =
+  (
+    (Name: 'StrDatabase'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: 'StrTable'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: ''; Direction: 4; DBXType: 26; TypeName: 'String')
+  );
+
+  TServer_DataModule_GetSqLByRecords: array [0..1] of TDSRestParameterMetaData =
+  (
+    (Name: 'strsql'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: ''; Direction: 4; DBXType: 37; TypeName: 'TFDJSONDataSets')
+  );
+
+  TServer_DataModule_GetSqLByRecords_Cache: array [0..1] of TDSRestParameterMetaData =
+  (
+    (Name: 'strsql'; Direction: 1; DBXType: 26; TypeName: 'string'),
     (Name: ''; Direction: 4; DBXType: 26; TypeName: 'String')
   );
 
@@ -211,6 +261,128 @@ begin
   Result := TDSRestCachedTFDJSONDataSets.Create(FGetSymbolsListCommand_Cache.Parameters[1].Value.GetString);
 end;
 
+function TServer_DataModuleClient.GetDataBaseAllTables(StrDatabase: string; const ARequestFilter: string): TFDJSONDataSets;
+begin
+  if FGetDataBaseAllTablesCommand = nil then
+  begin
+    FGetDataBaseAllTablesCommand := FConnection.CreateCommand;
+    FGetDataBaseAllTablesCommand.RequestType := 'GET';
+    FGetDataBaseAllTablesCommand.Text := 'TServer_DataModule.GetDataBaseAllTables';
+    FGetDataBaseAllTablesCommand.Prepare(TServer_DataModule_GetDataBaseAllTables);
+  end;
+  FGetDataBaseAllTablesCommand.Parameters[0].Value.SetWideString(StrDatabase);
+  FGetDataBaseAllTablesCommand.Execute(ARequestFilter);
+  if not FGetDataBaseAllTablesCommand.Parameters[1].Value.IsNull then
+  begin
+    FUnMarshal := TDSRestCommand(FGetDataBaseAllTablesCommand.Parameters[1].ConnectionHandler).GetJSONUnMarshaler;
+    try
+      Result := TFDJSONDataSets(FUnMarshal.UnMarshal(FGetDataBaseAllTablesCommand.Parameters[1].Value.GetJSONValue(True)));
+      if FInstanceOwner then
+        FGetDataBaseAllTablesCommand.FreeOnExecute(Result);
+    finally
+      FreeAndNil(FUnMarshal)
+    end
+  end
+  else
+    Result := nil;
+end;
+
+function TServer_DataModuleClient.GetDataBaseAllTables_Cache(StrDatabase: string; const ARequestFilter: string): IDSRestCachedTFDJSONDataSets;
+begin
+  if FGetDataBaseAllTablesCommand_Cache = nil then
+  begin
+    FGetDataBaseAllTablesCommand_Cache := FConnection.CreateCommand;
+    FGetDataBaseAllTablesCommand_Cache.RequestType := 'GET';
+    FGetDataBaseAllTablesCommand_Cache.Text := 'TServer_DataModule.GetDataBaseAllTables';
+    FGetDataBaseAllTablesCommand_Cache.Prepare(TServer_DataModule_GetDataBaseAllTables_Cache);
+  end;
+  FGetDataBaseAllTablesCommand_Cache.Parameters[0].Value.SetWideString(StrDatabase);
+  FGetDataBaseAllTablesCommand_Cache.ExecuteCache(ARequestFilter);
+  Result := TDSRestCachedTFDJSONDataSets.Create(FGetDataBaseAllTablesCommand_Cache.Parameters[1].Value.GetString);
+end;
+
+function TServer_DataModuleClient.GetTableNameByFields(StrDatabase: string; StrTable: string; const ARequestFilter: string): TFDJSONDataSets;
+begin
+  if FGetTableNameByFieldsCommand = nil then
+  begin
+    FGetTableNameByFieldsCommand := FConnection.CreateCommand;
+    FGetTableNameByFieldsCommand.RequestType := 'GET';
+    FGetTableNameByFieldsCommand.Text := 'TServer_DataModule.GetTableNameByFields';
+    FGetTableNameByFieldsCommand.Prepare(TServer_DataModule_GetTableNameByFields);
+  end;
+  FGetTableNameByFieldsCommand.Parameters[0].Value.SetWideString(StrDatabase);
+  FGetTableNameByFieldsCommand.Parameters[1].Value.SetWideString(StrTable);
+  FGetTableNameByFieldsCommand.Execute(ARequestFilter);
+  if not FGetTableNameByFieldsCommand.Parameters[2].Value.IsNull then
+  begin
+    FUnMarshal := TDSRestCommand(FGetTableNameByFieldsCommand.Parameters[2].ConnectionHandler).GetJSONUnMarshaler;
+    try
+      Result := TFDJSONDataSets(FUnMarshal.UnMarshal(FGetTableNameByFieldsCommand.Parameters[2].Value.GetJSONValue(True)));
+      if FInstanceOwner then
+        FGetTableNameByFieldsCommand.FreeOnExecute(Result);
+    finally
+      FreeAndNil(FUnMarshal)
+    end
+  end
+  else
+    Result := nil;
+end;
+
+function TServer_DataModuleClient.GetTableNameByFields_Cache(StrDatabase: string; StrTable: string; const ARequestFilter: string): IDSRestCachedTFDJSONDataSets;
+begin
+  if FGetTableNameByFieldsCommand_Cache = nil then
+  begin
+    FGetTableNameByFieldsCommand_Cache := FConnection.CreateCommand;
+    FGetTableNameByFieldsCommand_Cache.RequestType := 'GET';
+    FGetTableNameByFieldsCommand_Cache.Text := 'TServer_DataModule.GetTableNameByFields';
+    FGetTableNameByFieldsCommand_Cache.Prepare(TServer_DataModule_GetTableNameByFields_Cache);
+  end;
+  FGetTableNameByFieldsCommand_Cache.Parameters[0].Value.SetWideString(StrDatabase);
+  FGetTableNameByFieldsCommand_Cache.Parameters[1].Value.SetWideString(StrTable);
+  FGetTableNameByFieldsCommand_Cache.ExecuteCache(ARequestFilter);
+  Result := TDSRestCachedTFDJSONDataSets.Create(FGetTableNameByFieldsCommand_Cache.Parameters[2].Value.GetString);
+end;
+
+function TServer_DataModuleClient.GetSqLByRecords(strsql: string; const ARequestFilter: string): TFDJSONDataSets;
+begin
+  if FGetSqLByRecordsCommand = nil then
+  begin
+    FGetSqLByRecordsCommand := FConnection.CreateCommand;
+    FGetSqLByRecordsCommand.RequestType := 'GET';
+    FGetSqLByRecordsCommand.Text := 'TServer_DataModule.GetSqLByRecords';
+    FGetSqLByRecordsCommand.Prepare(TServer_DataModule_GetSqLByRecords);
+  end;
+  FGetSqLByRecordsCommand.Parameters[0].Value.SetWideString(strsql);
+  FGetSqLByRecordsCommand.Execute(ARequestFilter);
+  if not FGetSqLByRecordsCommand.Parameters[1].Value.IsNull then
+  begin
+    FUnMarshal := TDSRestCommand(FGetSqLByRecordsCommand.Parameters[1].ConnectionHandler).GetJSONUnMarshaler;
+    try
+      Result := TFDJSONDataSets(FUnMarshal.UnMarshal(FGetSqLByRecordsCommand.Parameters[1].Value.GetJSONValue(True)));
+      if FInstanceOwner then
+        FGetSqLByRecordsCommand.FreeOnExecute(Result);
+    finally
+      FreeAndNil(FUnMarshal)
+    end
+  end
+  else
+    Result := nil;
+end;
+
+function TServer_DataModuleClient.GetSqLByRecords_Cache(strsql: string; const ARequestFilter: string): IDSRestCachedTFDJSONDataSets;
+begin
+  if FGetSqLByRecordsCommand_Cache = nil then
+  begin
+    FGetSqLByRecordsCommand_Cache := FConnection.CreateCommand;
+    FGetSqLByRecordsCommand_Cache.RequestType := 'GET';
+    FGetSqLByRecordsCommand_Cache.Text := 'TServer_DataModule.GetSqLByRecords';
+    FGetSqLByRecordsCommand_Cache.Prepare(TServer_DataModule_GetSqLByRecords_Cache);
+  end;
+  FGetSqLByRecordsCommand_Cache.Parameters[0].Value.SetWideString(strsql);
+  FGetSqLByRecordsCommand_Cache.ExecuteCache(ARequestFilter);
+  Result := TDSRestCachedTFDJSONDataSets.Create(FGetSqLByRecordsCommand_Cache.Parameters[1].Value.GetString);
+end;
+
 function TServer_DataModuleClient.GetUpdateUserTelList(strUser: string; strTel: string; const ARequestFilter: string): TFDJSONDataSets;
 begin
   if FGetUpdateUserTelListCommand = nil then
@@ -331,6 +503,12 @@ begin
   FReverseStringCommand.DisposeOf;
   FGetSymbolsListCommand.DisposeOf;
   FGetSymbolsListCommand_Cache.DisposeOf;
+  FGetDataBaseAllTablesCommand.DisposeOf;
+  FGetDataBaseAllTablesCommand_Cache.DisposeOf;
+  FGetTableNameByFieldsCommand.DisposeOf;
+  FGetTableNameByFieldsCommand_Cache.DisposeOf;
+  FGetSqLByRecordsCommand.DisposeOf;
+  FGetSqLByRecordsCommand_Cache.DisposeOf;
   FGetUpdateUserTelListCommand.DisposeOf;
   FGetUpdateUserTelListCommand_Cache.DisposeOf;
   FGetUpdateTradeProductConfigCommand.DisposeOf;

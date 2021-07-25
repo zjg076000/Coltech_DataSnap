@@ -13,9 +13,6 @@ Coordinates=550,0,46,51
 [TabItem3]
 Coordinates=190,100,59,33
 
-[Panel2]
-Coordinates=105,78,47,33
-
 [TabControl1]
 Coordinates=10,78,74,33
 
@@ -26,7 +23,7 @@ Coordinates=190,190,47,33
 Coordinates=610,130,59,33
 
 []
-Coordinates=362,420,84,195
+Coordinates=44,350,52,51
 Visible=False
 
 [StringGrid1]
@@ -113,24 +110,6 @@ Coordinates=417,1,84,123
 
 [PopupMenu1]
 Coordinates=546,350,79,33
-
-[Label12]
-Coordinates=44,350,52,51
-
-[Panel7]
-Coordinates=546,402,47,33
-
-[RadioButton1]
-Coordinates=546,350,81,33
-
-[RadioButton2]
-Coordinates=707,1,81,33
-
-[RadioButton3]
-Coordinates=707,53,81,33
-
-[RadioButton4]
-Coordinates=707,105,81,33
 
 [edtServer]
 Coordinates=358,1,61,51
@@ -266,4 +245,7 @@ Visible=True
 [Fmtbl_trade_product_config_real]
 Visible=False
 Coordinates=707,212,208,33
+
+[pnl_datainit]
+Coordinates=105,78,47,33
 
