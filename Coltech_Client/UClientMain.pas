@@ -114,7 +114,7 @@ type
     edtWeb: TEdit;
     SpeedButton5: TSpeedButton;
     FloatAnimation10: TFloatAnimation;
-    SpeedButton6: TSpeedButton;
+    btn_newsymbols: TSpeedButton;
     FloatAnimation11: TFloatAnimation;
     btn_web: TSpeedButton;
     FloatAnimation6: TFloatAnimation;
@@ -138,9 +138,8 @@ type
     FloatAnimation8: TFloatAnimation;
     Panel18: TPanel;
     pnl_tableBar: TPanel;
-    StringGrid3: TStringGrid;
     Panel19: TPanel;
-    StringGrid4: TStringGrid;
+    GrdRecords: TStringGrid;
     Panel20: TPanel;
     SpeedButton2: TSpeedButton;
     FloatAnimation9: TFloatAnimation;
@@ -149,7 +148,19 @@ type
     Label17: TLabel;
     DateEdit2: TDateEdit;
     pnl_sql: TPanel;
-    Memo1: TMemo;
+    memo_Sql: TMemo;
+    RadioButton5: TRadioButton;
+    fmtbl_tables: TFDMemTable;
+    bdso_tables: TBindSourceDB;
+    Panel21: TPanel;
+    GrdTables: TStringGrid;
+    edt_tables_Filter: TEdit;
+    LinkGridToDataSourcebdso_tables: TLinkGridToDataSource;
+    Fmtbl_Records: TFDMemTable;
+    Panel22: TPanel;
+    edt_RecordsFilter: TEdit;
+    bdso_Records: TBindSourceDB;
+    LinkGridToDataSourceBindSourceDB13: TLinkGridToDataSource;
     procedure btnSymbolsClick(Sender: TObject);
     procedure btnConnClick(Sender: TObject);
     procedure RadioButton1Click(Sender: TObject);
@@ -163,7 +174,10 @@ type
     procedure btn_addsqlClick(Sender: TObject);
     procedure btn_execsqlClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
-    procedure SpeedButton6Click(Sender: TObject);
+    procedure btn_newsymbolsClick(Sender: TObject);
+    procedure edt_tables_FilterChange(Sender: TObject);
+    procedure GrdTablesCellDblClick(const Column: TColumn; const Row: Integer);
+    procedure edt_RecordsFilterChange(Sender: TObject);
   private
     dbUser,dbPass,dbName,dbPort,dbServer:string;
     ConnRemoteIP,AppStr:string;
@@ -175,6 +189,7 @@ type
 
     function fun_check(StrValue,str_message:string):boolean;
 
+    procedure proc_checkconndatabase(str:string);
   public
 
   end;
@@ -189,11 +204,13 @@ implementation
 
 procedure TFClientMain.FormCreate(Sender: TObject);
 begin
-   proc_readini('1');
+   proc_readini('0');
 //   ClientModule1.DSRestConnection1.Host:=ConnRemoteIP;
-   AppStr:='1061-9.0';
+   AppStr:='测试系统';
 
-   pro_ObjectEnable(false);
+   pnl_sql.Visible:=false;
+
+ //  pro_ObjectEnable(false);
 
 end;
 
@@ -205,6 +222,31 @@ begin
      showmessage(str_message);
      result:=false;
   end;
+end;
+
+procedure TFClientMain.GrdTablesCellDblClick(const Column: TColumn;
+  const Row: Integer);
+begin
+    //取得所有的表 显示到 table 中
+   var strsql:='select * from '+fmtbl_tables.FieldByName('table_name').asstring;
+        //   +' top 0, 50';
+   var jds:= ClientModuleUnit1.ClientModule1.Server_DataModuleClient.GetSqLByRecords(strsql);
+   if Fmtbl_Records.Active=True then      Fmtbl_Records.Close;
+
+   Fmtbl_Records.AppendData(TFDJsonDataSetsReader.GetListValue(jds,0));
+
+end;
+
+procedure TFClientMain.proc_checkconndatabase(str: string);
+begin
+    if str='未连接' then
+    begin
+     //result:=false;
+     showmessage('数据库没连接，请连接后再测试！');
+     exit;
+   end
+   // else  result:=true;
+
 end;
 
 procedure TFClientMain.proc_readini(ServerId:string);
@@ -233,9 +275,9 @@ end;
 
 procedure TFClientMain.pro_ObjectEnable(EnableState: boolean);
 begin
-    btnSymbols.Enabled:=EnableState;
+   { btnSymbols.Enabled:=EnableState;
     Edt_symbols.ReadOnly:=not  EnableState;
-    btnconn.Enabled:=not  EnableState;
+    btnconn.Enabled:=not  EnableState;    }
 
 end;
 
@@ -272,6 +314,7 @@ end;
 end;
 
 procedure TFClientMain.btnConnClick(Sender: TObject);
+
 begin
 try
 
@@ -294,13 +337,13 @@ try
      begin
         btnConn.ImageIndex:=5;
         btnConn.Text:='已连接';
-        pro_ObjectEnable(false);
+      //  pro_ObjectEnable(false);
      end
      else
      begin
          btnConn.ImageIndex:=4;
         btnConn.Text:='未连接';
-         pro_ObjectEnable(true);
+       //  pro_ObjectEnable(true);
      end;
 
    // showmessage(
@@ -310,6 +353,18 @@ try
         '',cmbDatabase.Selected.Text,'','','');
 
 
+   //取得所有的表 显示到 table 中
+   var jds:= ClientModuleUnit1.ClientModule1.Server_DataModuleClient.GetDataBaseAllTables(cmbDatabase.Selected.Text);
+   if fmtbl_tables.Active=True then      fmtbl_tables.Close;
+
+   fmtbl_tables.AppendData(TFDJsonDataSetsReader.GetListValue(jds,0));
+
+
+  {  ClientModuleUnit1.ClientModule1.Server_DataModuleClient.SetConnDabaseConfig(
+        trim(edtServer.text),cmbDatabase.Selected.Text,trim(edtPort.text),
+        trim(edtAccount.text),trim(edtPassword.text));      }
+
+
 except
   exit;
 end;
@@ -317,18 +372,25 @@ end;
 
 procedure TFClientMain.RadioButton1Click(Sender: TObject);
 begin
-
-
   AppStr:=trim(TRadioButton(Sender).Text);
- var str:=AppStr;
-    if str='1061-9.0' then
+  var str:=AppStr;
+
+
+    if str='测试系统' then
+    begin
+    // ConnRemoteIP:='47.93.11.161';
+     // ConnRemoteIP:='192.168.128.148';
+      proc_readini('0');
+     // ClientModule1.DSRestConnection1:=ClientModule1.DSRestConnection_1061;
+    end
+    else if str='1061-9.0' then
     begin
     // ConnRemoteIP:='47.93.11.161';
      // ConnRemoteIP:='192.168.128.148';
       proc_readini('1');
      // ClientModule1.DSRestConnection1:=ClientModule1.DSRestConnection_1061;
     end
-    else if str='1069' then
+    else if str='1090' then
     begin
      //ConnRemoteIP:='39.97.190.62';
      proc_readini('2');
@@ -357,7 +419,7 @@ begin
    // ClientModule1.DSRestConnection1.Reset;
  // if True then
    btnConn.ImageIndex:=4;
-   btnConn.Text:='未上线';
+   btnConn.Text:='未连接';
 
    Fmtbl_Symbols.close;
 
@@ -383,7 +445,7 @@ begin
    end;
 end;
 
-procedure TFClientMain.SpeedButton6Click(Sender: TObject);
+procedure TFClientMain.btn_newsymbolsClick(Sender: TObject);
 
 var
   pt: TPoint;
@@ -396,7 +458,8 @@ begin
   Mouse.CursorPos := Point(pt.X, pt.y);
   GetWindowRect(Form2.Handle, r);
   Mouse.CursorPos := Point(r.Left + 20, r.Top + 150 + 20);  }
-
+  edtWeb.Text:='http://data.eastmoney.com/xg/xg/default.html';
+  web.Navigate(edtWeb.Text);
 
 end;
 
@@ -404,7 +467,11 @@ procedure TFClientMain.btnSymbolsClick(Sender: TObject);
 var  jds:TFDJSONDataSets;
 begin
 
+  proc_checkconndatabase(btnconn.Text);
+
   if fun_check(edt_symbols.Text,'新股代码不能为空')=false then exit;
+
+
 
  //  if FDMemTable1.Active=True then      FDMemTable1.Close;
 
@@ -457,10 +524,13 @@ end;
 
 procedure TFClientMain.btn_execsqlClick(Sender: TObject);
 begin
-   {  if chkdatabase.IsChecked=true  then
-        pnl_datainit.Visible:=true
-     else
-         pnl_datainit.Visible:=false;      }
+   if fun_check(memo_Sql.Text,'你输入的SQL 不能为空')=false then exit;
+
+
+   var jds:= ClientModuleUnit1.ClientModule1.Server_DataModuleClient.GetSqLByRecords(memo_Sql.Text);
+   if Fmtbl_Records.Active=True then      Fmtbl_Records.Close;
+
+   Fmtbl_Records.AppendData(TFDJsonDataSetsReader.GetListValue(jds,0));
 end;
 
 procedure TFClientMain.btn_webClick(Sender: TObject);
@@ -479,6 +549,24 @@ end;
 procedure TFClientMain.CornerButton2Click(Sender: TObject);
 begin
      //  PopupMenu1.Popup(CornerButton2.)
+end;
+
+procedure TFClientMain.edt_RecordsFilterChange(Sender: TObject);
+begin
+     Fmtbl_Records.Filtered:=false;
+  // var     str:='%'+edt_RecordsFilter.text+'%';
+ //    str:=' table_name like '''+str+'''';
+   Fmtbl_Records.Filter:=edt_RecordsFilter.text;
+   Fmtbl_Records.Filtered:=true;
+end;
+
+procedure TFClientMain.edt_tables_FilterChange(Sender: TObject);
+begin
+    fmtbl_tables.Filtered:=false;
+   var     str:='%'+edt_tables_Filter.text+'%';
+     str:=' table_name like '''+str+'''';
+   fmtbl_tables.Filter:=str;
+   fmtbl_tables.Filtered:=true;
 end;
 
 end.

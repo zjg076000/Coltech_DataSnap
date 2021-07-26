@@ -37,19 +37,19 @@
           PNG = {
             89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
             61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-            018349444154384FB5D2CF2B04611807F0EFCCAE5FB314C9E22671514E6E1C94
-            38887F41F90FC4417B50E2A21C10B78D75E44648512EB66D43296CAB145B4BD6
-            FA91B0D3FC9EC7ECF4D2BEC5E0E0737967DEE799EFF4CCBCF83FE3248E6C68B3
-            C759598D1C99DB9DCB54C92A3F1B5831FAF7CEF53415C83CCAEAEA8931C95ABE
-            11B2ABC307E6D6FDB36CB3E738FB57364DEC68F3ACDB25B2D535DC6E4EF73489
-            7D359592C0B65CB7AFC0D2A189879C85378D24B6EDE2027C022899B5B07B61E1
-            E6856058403C6D239632515F0194FA5963012EE083691162571616A2069C6910
-            2866852F7C1990273A15DD66371EB8807BD92ACFE6C8BDF67A6B212E2018F0E5
-            F2EB6986F011F4132E40B52126EE80F21240D600C560050F5C80DFF90B9A49B8
-            7C041E64A0AC88153C7001AF2A291D0D222467FE37831FE14957CCB5046DAE27
-            C545B6E5E20E0C4254D5DBA48F763763B03620D65D3B67A12528209AA2B3588A
-            E6E2432511D6F9890F605A67A8B1AD5E9D928A84AE8CE28BAC45FD63080BBFF8
-            227F06BC037646B8DC2EF121AD0000000049454E44AE426082}
+            018549444154384FB5D2CF2B04611807F0EFCCEEFAB143915AF626AD8B7272E3
+            A0C441FC0BCA7F200EDA831217E580B88975E44648512EB66D430ED85629BB85
+            AC6523BBB3767E3F76A797F62D7639F85CDE99E779E63BBD332FFECF248963DB
+            EAFC59525602A7C65EF71AD5B14E7943EBFAE0E195764B45122959D938D7A7D9
+            C80FFC56C3F2B1B19B7C912DF61CE72866D1D4BEBAC8A66D225B6DA39DC66C9F
+            4F1CF0D44B022BD91ED2C0EA898167D9444625372BDBB80087008A264D1C5C9B
+            B87F23E82610BEB5108A1BF0D602554E3658840BF864988450CCC45250C76BD6
+            8254C11ADFF836A040CC77348BDD94C0053C65CD9AA44CF675A9B716E3023C92
+            432EAC1709C26750395C8062418C3C023595405605723A6B94C00538F37F4135
+            083729E0390B54BB58A3042E20AD50AEAB59843BBFFF8CCE6F21A5BD1B9B11DA
+            D98A8A2BAC64E30E0CFC54DFEFD3C67B5B31DC28894D77F9B3D0E611108CD365
+            284E0BE191CA009BFCC20730ED73D4D2E15566DC2EA1279173043683CE092C0B
+            BFF8227F067C006912B8D78128D21D0000000049454E44AE426082}
           FileName = 
             'F:\soft\delphi\Coltech_DataSnap\Coltech_Client\image\16\'#25299#25169#22270'_'#26381#21153#22120'.' +
             'png'
@@ -184,7 +184,7 @@
       Size.Width = 73.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
-      Text = #26410#19978#32447
+      Text = #26410#36830#25509
       OnClick = btnConnClick
       object FloatAnimation2: TFloatAnimation
         Duration = 0.200000002980232200
@@ -208,7 +208,7 @@
       Size.Width = 886.000000000000000000
       Size.Height = 461.000000000000000000
       Size.PlatformDefault = False
-      TabIndex = 0
+      TabIndex = 5
       TabOrder = 1
       TabPosition = PlatformDefault
       Sizes = (
@@ -228,7 +228,7 @@
         CustomIcon = <
           item
           end>
-        IsSelected = True
+        IsSelected = False
         ImageIndex = 2
         Size.Width = 84.000000000000000000
         Size.Height = 26.000000000000000000
@@ -712,7 +712,7 @@
                 StopValue = 0.000000000000000000
               end
             end
-            object SpeedButton6: TSpeedButton
+            object btn_newsymbols: TSpeedButton
               Align = Right
               Images = ImageList1
               ImageIndex = 7
@@ -723,7 +723,7 @@
               Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
               Text = #26032#32929#34892#24773
-              OnClick = SpeedButton6Click
+              OnClick = btn_newsymbolsClick
               object FloatAnimation11: TFloatAnimation
                 Duration = 0.200000002980232200
                 PropertyName = 'Opacity'
@@ -760,7 +760,7 @@
         CustomIcon = <
           item
           end>
-        IsSelected = False
+        IsSelected = True
         ImageIndex = 13
         Size.Width = 108.000000000000000000
         Size.Height = 26.000000000000000000
@@ -856,58 +856,94 @@
             TabOrder = 1
             object pnl_tableBar: TPanel
               Align = Left
-              Size.Width = 193.000000000000000000
+              Size.Width = 249.000000000000000000
               Size.Height = 401.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
-              object StringGrid3: TStringGrid
+              object Panel21: TPanel
+                Align = Bottom
+                Position.Y = 368.000000000000000000
+                Size.Width = 249.000000000000000000
+                Size.Height = 33.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 1
+                object edt_tables_Filter: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  TabOrder = 1
+                  KeyboardType = Alphabet
+                  Size.Width = 249.000000000000000000
+                  Size.Height = 33.000000000000000000
+                  Size.PlatformDefault = False
+                  OnChange = edt_tables_FilterChange
+                end
+              end
+              object GrdTables: TStringGrid
                 Align = Client
                 CanFocus = True
                 ClipChildren = True
-                Size.Width = 193.000000000000000000
-                Size.Height = 401.000000000000000000
+                Size.Width = 249.000000000000000000
+                Size.Height = 368.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
                 Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
-                Viewport.Width = 189.000000000000000000
-                Viewport.Height = 376.000000000000000000
+                OnCellDblClick = GrdTablesCellDblClick
+                Viewport.Width = 229.000000000000000000
+                Viewport.Height = 343.000000000000000000
               end
             end
             object Panel19: TPanel
               Align = Client
-              Size.Width = 693.000000000000000000
+              Size.Width = 637.000000000000000000
               Size.Height = 401.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
-              object StringGrid4: TStringGrid
+              object GrdRecords: TStringGrid
                 Align = Client
                 CanFocus = True
                 ClipChildren = True
-                Size.Width = 693.000000000000000000
-                Size.Height = 401.000000000000000000
+                Size.Width = 637.000000000000000000
+                Size.Height = 287.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
                 Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
-                Viewport.Width = 689.000000000000000000
-                Viewport.Height = 376.000000000000000000
+                Viewport.Width = 633.000000000000000000
+                Viewport.Height = 262.000000000000000000
               end
               object pnl_sql: TPanel
                 Align = Top
-                Size.Width = 534.000000000000000000
+                Size.Width = 637.000000000000000000
                 Size.Height = 81.000000000000000000
                 Size.PlatformDefault = False
-                Visible = False
                 TabOrder = 1
-                object Memo1: TMemo
+                object memo_Sql: TMemo
                   Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
                   DataDetectorTypes = []
                   Align = Client
-                  Size.Width = 534.000000000000000000
+                  Size.Width = 637.000000000000000000
                   Size.Height = 81.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 0
-                  Viewport.Width = 530.000000000000000000
+                  Viewport.Width = 633.000000000000000000
                   Viewport.Height = 77.000000000000000000
+                end
+              end
+              object Panel22: TPanel
+                Align = Bottom
+                Position.Y = 368.000000000000000000
+                Size.Width = 637.000000000000000000
+                Size.Height = 33.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 2
+                object edt_RecordsFilter: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  TabOrder = 0
+                  KeyboardType = Alphabet
+                  Size.Width = 637.000000000000000000
+                  Size.Height = 33.000000000000000000
+                  Size.PlatformDefault = False
+                  OnChange = edt_RecordsFilterChange
                 end
               end
             end
@@ -1066,10 +1102,22 @@
       Position.Y = 4.000000000000000000
       RotationCenter.X = 0.100000001490116100
       RotationCenter.Y = 0.100000001490116100
-      Size.Width = 289.000000000000000000
+      Size.Width = 381.000000000000000000
       Size.Height = 24.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 14
+      object RadioButton5: TRadioButton
+        IsChecked = True
+        Position.X = 14.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 73.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 16
+        Text = #27979#35797#31995#32479
+        OnChange = RadioButton4Change
+        OnClick = RadioButton1Click
+      end
     end
     object Label12: TLabel
       Position.X = 24.000000000000000000
@@ -1077,12 +1125,11 @@
       Size.Width = 63.000000000000000000
       Size.Height = 17.000000000000000000
       Size.PlatformDefault = False
-      Text = #23458#25143#24212#29992#65306
+      Text = #24212#29992#31995#32479#65306
       TabOrder = 1
     end
     object RadioButton1: TRadioButton
-      IsChecked = True
-      Position.X = 90.000000000000000000
+      Position.X = 177.000000000000000000
       Position.Y = 7.000000000000000000
       Size.Width = 73.000000000000000000
       Size.Height = 19.000000000000000000
@@ -1093,18 +1140,18 @@
       OnClick = RadioButton1Click
     end
     object RadioButton2: TRadioButton
-      Position.X = 170.000000000000000000
+      Position.X = 257.000000000000000000
       Position.Y = 7.000000000000000000
       Size.Width = 57.000000000000000000
       Size.Height = 19.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 16
-      Text = '1069'
+      Text = '1090'
       OnChange = RadioButton4Change
       OnClick = RadioButton1Click
     end
     object RadioButton3: TRadioButton
-      Position.X = 234.000000000000000000
+      Position.X = 321.000000000000000000
       Position.Y = 7.000000000000000000
       Size.Width = 64.000000000000000000
       Size.Height = 19.000000000000000000
@@ -1115,7 +1162,7 @@
       OnClick = RadioButton1Click
     end
     object RadioButton4: TRadioButton
-      Position.X = 307.000000000000000000
+      Position.X = 394.000000000000000000
       Position.Y = 7.000000000000000000
       Size.Width = 62.000000000000000000
       Size.Height = 19.000000000000000000
@@ -1411,13 +1458,13 @@
               5940042100D46809D4D806E52E07E2BF10260103727373B5989999A782D8FFFF
               FF6F9C3871E28182820220F3BF0558011060F5426161A13450D112101BA611C4
               066AF606526940E7FB83F82080E282E2E262EEBF7FFFAEFFF7EF1F481CAE1106
-              3E7CF8B0494040400FCA0503B80BF2F2F25603FD29CCC4C4D4D8DFDF7F102A0C
+              DEBF7FBF495050500FCA0503B80BF2F2F25603FD29CCC4C4D4D8DFDF7F102A0C
               07D000CC02DA1E061502032628CD009414FDF9F3A719D0053D40C5ED406F0442
               A5C000E8AA4540EF9441B9708011064097E8015D610F640A01F175A08DAB70D9
               0E027017C0C0A449932E01154E06DA760D886D406240CD1D4043B3C00AD00086
               0130C0C2C2721548D9806C07D28FFAFAFADE8025D0004E037A7B7BAF016D6605
-              E27A208E870A63009C068000D00B6F81D46B60AC7C87880C3EC0C000000C6D74
-              4754325C580000000049454E44AE426082}
+              E27A208E870A63009C068000D00B6F81D46B60AC7C87880C3EC0C000000C6174
+              47D509268A0000000049454E44AE426082}
             FileName = 'F:\soft\delphi\Coltech_DataSnap\Coltech_Client\image\16\'#23548#33322'.png'
           end>
         Name = #23548#33322
@@ -1485,14 +1532,14 @@
             PNG = {
               89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
               61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              00D849444154384F6318FA80114A13041EED7F373332FEF160F8CFBC6D7B258B
-              3F549881094AE305A1F5FFD91819197C18185858181819FDA0C26080618057D7
+              00D849444154384F6318FA80114A13041EED7F373332FEF660F8CFB26D7B258B
+              3F549881094AE305A1F5FFD91819197C18185859181819FDA0C26080618057D7
               7F0928130E5EE1B10845C2A3E3CF99FFFFFE3DF7ECF873012A4410A018C0C8C0
-              680C65E9DBD7FFE780B0F1039C4ED3D66660B9FDF2E7DBFB2F7E7E88B1FCCF05
-              15C600380DC8B7FFBB9985994508186EFC0EC6FF36408531004E0318FFFF6786
-              3219187F33C0D9E800A701C4025403FE33EC85320E30333087FEFFF3E70F0873
-              B0334580C42052303538807FFF7F01281303E0931B28C0C00000018A3C2BF037
-              4D4F0000000049454E44AE426082}
+              680C65E9DBD7FFE780B0F1039C4ED3D66660B9FDF2C7DBFBCF7F7C88B1FCCF05
+              15C600380DC8B7FFBB9985995588819595DFC1F8DF06A83006C06900E3FFFFCC
+              502603E36F06381B1DE0348058806AC07F86BD50C6016606E6D0FFBF7FFF0161
+              0E76A6089018440AA60607F0EFFF2F006562007C72030518180000123C2817F7
+              49680000000049454E44AE426082}
             FileName = 
               'F:\soft\delphi\Coltech_DataSnap\Coltech_Client\image\16\'#25968#25454#32479#35745'02.p' +
               'ng'
@@ -1590,8 +1637,8 @@
             Name = #25968#25454#32479#35745'02'
           end>
       end>
-    Left = 513
-    Top = 361
+    Left = 681
+    Top = 337
   end
   object Fmtbl_Symbols: TFDMemTable
     FetchOptions.AssignedValues = [evMode]
@@ -1646,6 +1693,18 @@
       Category = 'Quick Bindings'
       DataSource = bdso_trade_product_config_real
       GridControl = Grd_bdso_trade_product_config_real
+      Columns = <>
+    end
+    object LinkGridToDataSourcebdso_tables: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = bdso_tables
+      GridControl = GrdTables
+      Columns = <>
+    end
+    object LinkGridToDataSourceBindSourceDB13: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = bdso_Records
+      GridControl = GrdRecords
       Columns = <>
     end
   end
@@ -1771,5 +1830,42 @@
     ScopeMappings = <>
     Left = 184
     Top = 424
+  end
+  object fmtbl_tables: TFDMemTable
+    FieldDefs = <>
+    IndexDefs = <>
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    StoreDefs = True
+    Left = 393
+    Top = 375
+  end
+  object bdso_tables: TBindSourceDB
+    DataSet = fmtbl_tables
+    ScopeMappings = <>
+    Left = 392
+    Top = 328
+  end
+  object Fmtbl_Records: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 585
+    Top = 375
+  end
+  object bdso_Records: TBindSourceDB
+    DataSet = Fmtbl_Records
+    ScopeMappings = <>
+    Left = 592
+    Top = 432
   end
 end
