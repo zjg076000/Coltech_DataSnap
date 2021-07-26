@@ -1,221 +1,221 @@
 ﻿[Panel1]
-Coordinates=75,124,55,36
+Coordinates=75,124,47,33
 
 [Panel4]
-Coordinates=10,124,55,36
+Coordinates=10,124,47,33
 
 [TabItem2]
-Coordinates=320,100,69,36
+Coordinates=320,100,59,33
 
 [Label1]
-Coordinates=550,0,53,58
+Coordinates=550,0,46,51
 
 [TabItem3]
-Coordinates=190,100,69,36
+Coordinates=190,100,59,33
 
 [TabControl1]
-Coordinates=10,78,85,36
+Coordinates=10,78,74,33
 
 [Panel3]
-Coordinates=190,190,55,36
+Coordinates=190,190,47,33
 
 [TabItem1]
-Coordinates=610,130,69,36
+Coordinates=610,130,59,33
 
 []
 Coordinates=262,1,62,36
 Visible=False
 
 [StringGrid1]
-Coordinates=150,0,80,58
+Coordinates=150,0,70,51
 
 [ImageList1]
-Coordinates=218,149,77,36
+Coordinates=218,149,68,33
 
 [Label2]
-Coordinates=258,88,53,58
+Coordinates=258,88,46,51
 
 [Edt_symbols]
-Coordinates=430,150,88,58
+Coordinates=430,150,78,51
 
 [BindingsList1]
-Coordinates=204,149,91,36
+Coordinates=204,149,82,33
 
 [FloatAnimation1]
-Coordinates=189,149,108,36
+Coordinates=189,149,95,33
 
 [Label3]
-Coordinates=1070,390,53,58
+Coordinates=1070,390,46,51
 
 [Label4]
-Coordinates=309,261,53,58
+Coordinates=309,261,46,51
 
 [Label5]
-Coordinates=162,261,53,58
+Coordinates=162,261,46,51
 
 [Label6]
-Coordinates=113,261,53,58
+Coordinates=113,261,46,51
 
 [Label7]
-Coordinates=64,261,53,58
+Coordinates=64,261,46,51
 
 [Image1]
-Coordinates=0,210,57,58
+Coordinates=0,210,49,51
 
 [FloatAnimation2]
-Coordinates=189,149,108,36
+Coordinates=189,149,95,33
 
 [btnConn]
-Coordinates=417,220,63,58
+Coordinates=417,220,56,51
 
 [Panel5]
-Coordinates=880,270,55,36
+Coordinates=880,270,47,33
 
 [Label8]
-Coordinates=436,290,53,58
+Coordinates=436,290,46,51
 
 [FloatAnimation3]
-Coordinates=546,182,108,36
+Coordinates=546,182,95,33
 
 [StringGrid2]
-Coordinates=840,480,80,58
+Coordinates=840,480,70,51
 
 [Label9]
-Coordinates=368,350,53,58
+Coordinates=368,350,46,51
 
 [Panel6]
-Coordinates=800,240,55,36
+Coordinates=800,240,47,33
 LayerNames=NewLayer0
 
 [Label10]
-Coordinates=260,350,60,58
+Coordinates=260,350,52,51
 
 [FloatAnimation4]
-Coordinates=546,280,108,36
+Coordinates=546,280,95,33
 
 [Label11]
-Coordinates=103,350,60,58
+Coordinates=103,350,52,51
 
 [edtPort]
-Coordinates=358,222,56,58
+Coordinates=358,222,50,51
 
 [edtAccount]
-Coordinates=211,261,79,58
+Coordinates=211,261,70,51
 
 [edtPassword]
-Coordinates=260,261,89,58
+Coordinates=260,261,78,51
 
 [cmbDatabase]
-Coordinates=417,1,101,146
+Coordinates=417,1,84,123
 
 [PopupMenu1]
-Coordinates=546,350,90,36
+Coordinates=546,350,79,33
 
 [edtServer]
-Coordinates=358,1,70,58
+Coordinates=358,1,61,51
 
 [btnSymbols]
-Coordinates=287,152,82,58
+Coordinates=287,152,73,51
 
 [btnTel]
-Coordinates=546,70,50,58
+Coordinates=546,70,45,51
 
 [edt_LoginName]
-Coordinates=417,350,105,58
+Coordinates=417,350,91,51
 
 [edt_Tel]
-Coordinates=319,350,57,58
+Coordinates=319,350,50,51
 
 [Fmtbl_Symbols]
-Coordinates=466,20,103,36
+Coordinates=466,20,91,33
 Visible=True
 
 [bdso_Symbols]
-Coordinates=353,10,99,80
+Coordinates=353,10,87,69
 
 [FMtbl_UserTel]
-Coordinates=1298,580,99,36
+Coordinates=1298,580,85,33
 Visible=True
 
 [bdso_UserTel]
-Coordinates=1189,570,94,256
+Coordinates=1189,570,82,213
 
 [FDStanStorageBinLink2]
-Coordinates=0,0,152,36
+Coordinates=0,0,132,33
 
 [FDStanStorageJSONLink2]
-Coordinates=717,160,168,36
+Coordinates=717,160,143,33
 
 [FMtbl_UserTelUserID]
-Coordinates=786,160,139,36
+Coordinates=786,160,118,33
 
 [FMtbl_UserTelUserName]
-Coordinates=166,50,160,36
+Coordinates=166,50,136,33
 
 [FMtbl_UserTelLoginName]
-Coordinates=166,50,164,36
+Coordinates=166,50,141,33
 
 [FMtbl_UserTelMobile]
-Coordinates=166,50,137,36
+Coordinates=166,50,117,33
 
 [FMtbl_UserTelStatus]
-Coordinates=166,50,135,36
+Coordinates=166,50,116,33
 
 [FMtbl_UserTelIsDelete]
-Coordinates=166,50,146,36
+Coordinates=166,50,124,33
 
 [FMtbl_UserTelLastLoginTime]
-Coordinates=166,50,183,36
+Coordinates=166,50,158,33
 
 [FMtbl_UserTelLastLoginIP]
-Coordinates=166,50,167,36
+Coordinates=166,50,144,33
 
 [btnAutoHand]
-Coordinates=546,210,89,58
+Coordinates=546,210,79,51
 
 [cmb_antohand]
-Coordinates=540,470,101,146
+Coordinates=540,470,87,123
 
 [NumBox]
-Coordinates=467,350,63,58
+Coordinates=467,350,56,51
 
 [Panel15]
-Coordinates=230,50,62,36
+Coordinates=230,50,53,33
 
 [FMtbl_trade_product_config]
-Coordinates=1375,322,175,36
+Coordinates=1375,322,153,33
 Visible=True
 
 [StrGrd_trade_product_config]
-Coordinates=670,600,180,124
+Coordinates=670,600,158,105
 Visible=True
 
 [FMtbl_trade_product_configTextValue]
-Coordinates=898,1,233,36
+Coordinates=898,1,202,33
 
 [Label13]
-Coordinates=362,152,60,58
+Coordinates=362,152,52,51
 
 [FMtbl_trade_product_configRemark]
-Coordinates=1138,1,220,36
+Coordinates=1138,1,191,33
 
 [GridPanelLayout1]
-Coordinates=942,105,118,36
+Coordinates=942,105,102,33
 
 [Panel10]
-Coordinates=546,140,62,36
+Coordinates=546,140,53,33
 
 [Label14]
-Coordinates=461,439,60,58
+Coordinates=461,439,52,51
 
 [Panel8]
-Coordinates=730,340,55,36
+Coordinates=730,340,47,33
 
 [FMtbl_trade_product_configConfigType]
-Coordinates=1138,53,241,36
+Coordinates=1138,53,210,33
 
 [Panel9]
-Coordinates=850,310,55,36
+Coordinates=850,310,47,33
 
 [Module Settings]
 ModelLayerNames=NewLayer0;NewLayer1
@@ -223,206 +223,216 @@ ActiveLayerNames=NewLayer1
 EditingLayerName=NewLayer1
 
 [bdso_trade_product_config]
-Coordinates=1190,312,170,146
+Coordinates=1190,312,150,123
 Visible=True
 
 [IntegerField1]
-Coordinates=110,171,90,36
+Coordinates=110,171,78,33
 
 [WideStringField2]
-Coordinates=11,171,113,36
+Coordinates=11,171,98,33
 
 [WideStringField1]
-Coordinates=942,53,113,36
+Coordinates=942,53,98,33
 
 [bdso_trade_product_config_real]
-Coordinates=320,490,199,146
+Coordinates=320,490,174,123
 
 [Grd_bdso_trade_product_config_real]
-Coordinates=120,490,228,58
+Coordinates=120,490,198,51
 Visible=True
 
 [Fmtbl_trade_product_config_real]
 Visible=False
-Coordinates=707,212,204,36
+Coordinates=707,212,178,33
 
 [pnl_datainit]
-Coordinates=105,78,81,36
+Coordinates=105,78,72,33
 
 [btn_newsymbols]
-Coordinates=949,457,110,58
+Coordinates=949,457,97,51
 
 [浏览器]
-Coordinates=658,446,55,36
+Coordinates=658,446,48,33
 
 [StyleBook1]
-Coordinates=372,446,80,36
+Coordinates=372,446,70,33
 
 [RadioButton2]
-Coordinates=273,446,92,36
+Coordinates=273,446,81,33
 
 [FloatAnimation8]
-Coordinates=164,446,108,36
+Coordinates=164,446,95,33
 
 [FloatAnimation10]
-Coordinates=963,237,115,36
+Coordinates=963,237,100,33
 
 [Label16]
-Coordinates=717,344,60,58
+Coordinates=717,344,52,51
 
 [FloatAnimation7]
-Coordinates=561,654,108,36
+Coordinates=561,654,95,33
 
 [pnl_tableBar]
-Coordinates=472,654,87,36
+Coordinates=472,654,76,33
 
 [Panel12]
-Coordinates=403,654,62,36
+Coordinates=403,654,53,33
 
 [web]
-Coordinates=354,654,40,36
+Coordinates=354,654,40,33
 
 [FloatAnimation9]
-Coordinates=245,654,108,36
+Coordinates=245,654,95,33
 
 [Panel2]
-Coordinates=186,654,55,36
+Coordinates=186,654,47,33
 
 [btn_addsql]
-Coordinates=881,674,77,58
+Coordinates=881,674,69,51
 
 [Panel11]
-Coordinates=117,654,62,36
+Coordinates=117,654,53,33
 
 [数据查询工具]
-Coordinates=18,654,96,36
+Coordinates=18,654,82,33
 
 [RadioButton4]
-Coordinates=1218,185,92,36
+Coordinates=1218,185,81,33
 
 [Panel18]
-Coordinates=1218,240,62,36
+Coordinates=1218,240,53,33
 
 [系统周统计]
-Coordinates=1218,295,83,36
+Coordinates=1218,295,71,33
 
 [Panel20]
-Coordinates=1218,350,62,36
+Coordinates=1218,350,53,33
 
 [FloatAnimation11]
-Coordinates=1218,405,115,36
-
-[SpeedButton2]
-Coordinates=128,1,96,58
+Coordinates=1218,405,100,33
 
 [pnl_sql]
-Coordinates=1169,460,55,36
+Coordinates=1169,460,50,33
 
 [FloatAnimation5]
-Coordinates=1218,515,108,36
-
-[DateEdit2]
-Coordinates=949,160,138,58
+Coordinates=1218,515,95,33
 
 [MenuItem1]
-Coordinates=1218,570,79,36
+Coordinates=1218,570,68,33
 
 [chkDatabase]
-Coordinates=717,1,89,58
+Coordinates=717,1,77,51
 
 [SpeedButton1]
-Coordinates=14,248,96,58
+Coordinates=14,248,84,51
 
 [Panel19]
-Coordinates=1218,625,62,36
+Coordinates=1218,625,53,33
 
 [MenuItem2]
-Coordinates=1218,680,79,36
+Coordinates=1218,680,68,33
 
 [btn_web]
-Coordinates=295,152,63,58
+Coordinates=295,152,56,51
 
 [SpeedButton5]
-Coordinates=21,446,96,58
+Coordinates=21,446,84,51
 
 [RadioButton3]
-Coordinates=1218,735,92,36
+Coordinates=1218,735,81,33
 
 [edtWeb]
-Coordinates=556,1,59,58
+Coordinates=556,1,51,51
 
 [FloatAnimation6]
-Coordinates=1218,790,108,36
+Coordinates=1218,790,95,33
 
 [RadioButton1]
-Coordinates=1119,824,92,36
+Coordinates=1119,824,81,33
 
 [Panel7]
-Coordinates=1060,824,55,36
+Coordinates=1060,824,47,33
 
 [Panel14]
-Coordinates=991,824,62,36
-
-[DateEdit1]
-Coordinates=1169,108,138,58
+Coordinates=991,824,53,33
 
 [Panel16]
-Coordinates=922,824,62,36
+Coordinates=922,824,53,33
 
 [Panel13]
-Coordinates=853,824,62,36
+Coordinates=853,824,53,33
 
 [Label17]
-Coordinates=34,344,60,58
+Coordinates=34,344,52,51
 
 [btn_execsql]
-Coordinates=717,78,83,58
+Coordinates=717,78,73,51
 
 [Label12]
-Coordinates=191,344,60,58
+Coordinates=191,344,52,51
 
 [Panel17]
-Coordinates=784,824,62,36
+Coordinates=784,824,53,33
 
 [Label15]
-Coordinates=717,267,60,58
+Coordinates=717,267,52,51
 
 [RadioButton5]
-Coordinates=596,824,92,36
+Coordinates=596,824,81,33
 
 [fmtbl_tables]
-Coordinates=414,750,84,36
+Coordinates=414,750,74,33
 Visible=True
 
 [bdso_tables]
-Coordinates=320,740,84,80
+Coordinates=320,740,74,69
 
 [Panel21]
-Coordinates=0,0,62,36
+Coordinates=0,0,53,33
 
 [GrdTables]
-Coordinates=10,770,74,58
+Coordinates=10,770,65,51
 
 [edt_tables_Filter]
-Coordinates=81,1,110,58
+Coordinates=81,1,96,51
 
 [Panel22]
-Coordinates=262,1,62,36
+Coordinates=262,1,53,33
 
 [Fmtbl_Records]
-Coordinates=80,30,102,36
+Coordinates=80,30,89,33
 LayerNames=NewLayer1
 Visible=False
 
 [GrdRecords]
-Coordinates=230,30,84,58
+Coordinates=230,30,73,51
 
 [bdso_Records]
-Coordinates=80,30,97,80
+Coordinates=80,30,85,69
 
 [edt_RecordsFilter]
-Coordinates=141,152,116,58
+Coordinates=141,152,101,51
 
 [memo_Sql]
-Coordinates=717,421,76,58
+Coordinates=717,421,66,51
+
+[Fdtbl_WeekReport]
+Coordinates=1380,160,105,33
+Visible=False
+
+[GrdWeekReport]
+Coordinates=1430,60,92,51
+
+[bdso_WeekReport]
+Coordinates=1380,160,104,69
+
+[btn_WeekReport]
+Coordinates=128,1,96,51
+
+[beginTime]
+Coordinates=1169,108,115,51
+
+[endTime]
+Coordinates=949,160,115,51
 

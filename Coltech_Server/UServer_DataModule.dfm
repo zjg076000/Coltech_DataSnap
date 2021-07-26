@@ -75,4 +75,30 @@ object Server_DataModule: TServer_DataModule
     Left = 224
     Top = 264
   end
+  object FdWeekReport: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 488
+    Top = 192
+    object FdWeekReportHoldNum: TIntegerField
+      FieldName = 'HoldNum'
+    end
+    object FdWeekReportUsedInvest: TFloatField
+      FieldName = 'UsedInvest'
+    end
+    object FdWeekReportUsedReal: TFloatField
+      FieldName = 'UsedReal'
+    end
+    object FdWeekReportAmount: TFloatField
+      FieldName = 'Amount'
+    end
+    object FdWeekReporthistory_Amount: TFloatField
+      FieldName = 'history_Amount'
+    end
+  end
 end

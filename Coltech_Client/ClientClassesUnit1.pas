@@ -1,6 +1,6 @@
 //
 // Created by the DataSnap proxy generator.
-// 2021/7/25 21:06:27
+// 2021/7/26 16:03:20
 //
 
 unit ClientClassesUnit1;
@@ -30,6 +30,8 @@ type
     FGetUpdateUserTelListCommand_Cache: TDSRestCommand;
     FGetUpdateTradeProductConfigCommand: TDSRestCommand;
     FGetUpdateTradeProductConfigCommand_Cache: TDSRestCommand;
+    FGetWeekReportCommand: TDSRestCommand;
+    FGetWeekReportCommand_Cache: TDSRestCommand;
     FSetConnDabaseConfigCommand: TDSRestCommand;
   public
     constructor Create(ARestConnection: TDSRestConnection); overload;
@@ -50,6 +52,8 @@ type
     function GetUpdateUserTelList_Cache(strUser: string; strTel: string; const ARequestFilter: string = ''): IDSRestCachedTFDJSONDataSets;
     function GetUpdateTradeProductConfig(RowId: string; WorkState: string; RealFlag: string; const ARequestFilter: string = ''): TFDJSONDataSets;
     function GetUpdateTradeProductConfig_Cache(RowId: string; WorkState: string; RealFlag: string; const ARequestFilter: string = ''): IDSRestCachedTFDJSONDataSets;
+    function GetWeekReport(BeginTime: string; EndTime: string; const ARequestFilter: string = ''): TFDJSONDataSets;
+    function GetWeekReport_Cache(BeginTime: string; EndTime: string; const ARequestFilter: string = ''): IDSRestCachedTFDJSONDataSets;
     procedure SetConnDabaseConfig(dbServer: string; dbName: string; dbPort: string; dbUser: string; dbPass: string);
   end;
 
@@ -154,6 +158,20 @@ const
     (Name: 'RowId'; Direction: 1; DBXType: 26; TypeName: 'string'),
     (Name: 'WorkState'; Direction: 1; DBXType: 26; TypeName: 'string'),
     (Name: 'RealFlag'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: ''; Direction: 4; DBXType: 26; TypeName: 'String')
+  );
+
+  TServer_DataModule_GetWeekReport: array [0..2] of TDSRestParameterMetaData =
+  (
+    (Name: 'BeginTime'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: 'EndTime'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: ''; Direction: 4; DBXType: 37; TypeName: 'TFDJSONDataSets')
+  );
+
+  TServer_DataModule_GetWeekReport_Cache: array [0..2] of TDSRestParameterMetaData =
+  (
+    (Name: 'BeginTime'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: 'EndTime'; Direction: 1; DBXType: 26; TypeName: 'string'),
     (Name: ''; Direction: 4; DBXType: 26; TypeName: 'String')
   );
 
@@ -469,6 +487,48 @@ begin
   Result := TDSRestCachedTFDJSONDataSets.Create(FGetUpdateTradeProductConfigCommand_Cache.Parameters[3].Value.GetString);
 end;
 
+function TServer_DataModuleClient.GetWeekReport(BeginTime: string; EndTime: string; const ARequestFilter: string): TFDJSONDataSets;
+begin
+  if FGetWeekReportCommand = nil then
+  begin
+    FGetWeekReportCommand := FConnection.CreateCommand;
+    FGetWeekReportCommand.RequestType := 'GET';
+    FGetWeekReportCommand.Text := 'TServer_DataModule.GetWeekReport';
+    FGetWeekReportCommand.Prepare(TServer_DataModule_GetWeekReport);
+  end;
+  FGetWeekReportCommand.Parameters[0].Value.SetWideString(BeginTime);
+  FGetWeekReportCommand.Parameters[1].Value.SetWideString(EndTime);
+  FGetWeekReportCommand.Execute(ARequestFilter);
+  if not FGetWeekReportCommand.Parameters[2].Value.IsNull then
+  begin
+    FUnMarshal := TDSRestCommand(FGetWeekReportCommand.Parameters[2].ConnectionHandler).GetJSONUnMarshaler;
+    try
+      Result := TFDJSONDataSets(FUnMarshal.UnMarshal(FGetWeekReportCommand.Parameters[2].Value.GetJSONValue(True)));
+      if FInstanceOwner then
+        FGetWeekReportCommand.FreeOnExecute(Result);
+    finally
+      FreeAndNil(FUnMarshal)
+    end
+  end
+  else
+    Result := nil;
+end;
+
+function TServer_DataModuleClient.GetWeekReport_Cache(BeginTime: string; EndTime: string; const ARequestFilter: string): IDSRestCachedTFDJSONDataSets;
+begin
+  if FGetWeekReportCommand_Cache = nil then
+  begin
+    FGetWeekReportCommand_Cache := FConnection.CreateCommand;
+    FGetWeekReportCommand_Cache.RequestType := 'GET';
+    FGetWeekReportCommand_Cache.Text := 'TServer_DataModule.GetWeekReport';
+    FGetWeekReportCommand_Cache.Prepare(TServer_DataModule_GetWeekReport_Cache);
+  end;
+  FGetWeekReportCommand_Cache.Parameters[0].Value.SetWideString(BeginTime);
+  FGetWeekReportCommand_Cache.Parameters[1].Value.SetWideString(EndTime);
+  FGetWeekReportCommand_Cache.ExecuteCache(ARequestFilter);
+  Result := TDSRestCachedTFDJSONDataSets.Create(FGetWeekReportCommand_Cache.Parameters[2].Value.GetString);
+end;
+
 procedure TServer_DataModuleClient.SetConnDabaseConfig(dbServer: string; dbName: string; dbPort: string; dbUser: string; dbPass: string);
 begin
   if FSetConnDabaseConfigCommand = nil then
@@ -513,6 +573,8 @@ begin
   FGetUpdateUserTelListCommand_Cache.DisposeOf;
   FGetUpdateTradeProductConfigCommand.DisposeOf;
   FGetUpdateTradeProductConfigCommand_Cache.DisposeOf;
+  FGetWeekReportCommand.DisposeOf;
+  FGetWeekReportCommand_Cache.DisposeOf;
   FSetConnDabaseConfigCommand.DisposeOf;
   inherited;
 end;

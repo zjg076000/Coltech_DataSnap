@@ -24,6 +24,12 @@ type
     Fdq_Tel: TFDQuery;
     Fdq_trade_product_config: TFDQuery;
     Fdq_trade_product_config_real: TFDQuery;
+    FdWeekReport: TFDMemTable;
+    FdWeekReportHoldNum: TIntegerField;
+    FdWeekReportUsedInvest: TFloatField;
+    FdWeekReportUsedReal: TFloatField;
+    FdWeekReportAmount: TFloatField;
+    FdWeekReporthistory_Amount: TFloatField;
     procedure DataModuleCreate(Sender: TObject);
   private
       dbUser,dbPass,dbName,dbPort,dbServer:string;
@@ -72,6 +78,8 @@ type
     //更改成交模式
     function GetUpdateTradeProductConfig(const RowId,WorkState,RealFlag:string):TFDJSONDataSets;
 
+    //周报表统计
+    function GetWeekReport(BeginTime,EndTime:string):TFDJSONDataSets;
 
 
     //设置数据初始化参数  写 config.INI的数据库配置参数
@@ -351,6 +359,82 @@ begin
     Result := TFDJSONDataSets.Create;
   // Add departments dataset
     TFDJSONDataSetsWriter.ListAdd(Result, 'Sys_User', Fdq_tel);
+
+
+end;
+
+function TServer_DataModule.GetWeekReport(BeginTime,
+  EndTime: string): TFDJSONDataSets;
+var
+  strsql:String;
+  HoldNum:integer;
+  UsedInvest,UsedReal,Amount,history_Amount:real;
+
+begin
+  // 统计持仓单    1
+   strsql:='select COUNT(OrderID)  from funding_system.trade_o_hold';
+   pro_LocateSql(strsql,fdq_pub);
+   HoldNum:=fdq_pub.Fields[0].asinteger;
+
+   // 统计占用保金金    2
+   strsql:='select SUM(UsedInvest) a from funding_system.trade_o_hold;';
+   pro_LocateSql(strsql,fdq_pub);
+   UsedInvest:=fdq_pub.Fields[0].asfloat;
+
+  // 统计占用保金金   3
+   strsql:='select sum(UsedReal)  from funding_system.trade_o_hold WHERE  '
+        +' `OrderTime` > '''+BeginTime+''''+' AND `OrderTime` < '''+EndTime+'''';
+   pro_LocateSql(strsql,fdq_pub);
+   UsedReal:=fdq_pub.Fields[0].asinteger;
+
+  //统计周入金 5
+
+   strsql:='SELECT SUM(Amount)/100  FROM dwpay.trade_pay_flow WHERE  '
+     +'Status=1 AND CreateTime > '''+BeginTime+''''+' AND CreateTime <'''+EndTime+'''';
+
+   pro_LocateSql(strsql,fdq_pub);
+   Amount:=fdq_pub.Fields[0].asfloat;
+
+
+  //统计历史周入金 6
+
+   strsql:='SELECT SUM(Amount)/100  FROM dwpay.trade_pay_flow WHERE  '
+     +' Status=1 ';
+     //AND CreateTime >''2021-07-19 00:00:00'' AND CreateTime <''2021-07-23 23:59:59''';
+
+   pro_LocateSql(strsql,fdq_pub);
+   history_Amount:=fdq_pub.Fields[0].asfloat;
+
+
+
+
+   if FdWeekReport.Active=true then  FdWeekReport.Active:=false;
+   with  FdWeekReport do
+   begin
+     Active:=true;
+     Append;
+
+     fieldbyname('HoldNum').asinteger:=HoldNum;
+     fieldbyname('UsedInvest').asfloat:=UsedInvest;
+     fieldbyname('UsedReal').asfloat:=UsedReal;
+     fieldbyname('Amount').asfloat:=Amount;
+     fieldbyname('history_Amount').asfloat:=history_Amount;
+     post;
+   end;
+
+  //  2. 通过json 把数据传回本地
+
+    Result := TFDJSONDataSets.Create;
+  // Add departments dataset
+    TFDJSONDataSetsWriter.ListAdd(Result, 'weekreport', FdWeekReport);
+
+
+ {  -- 周入金5
+SELECT COUNT(*),SUM(Amount)/100,InChannel,Remark FROM dwpay.trade_pay_flow WHERE  `Status`=1 AND CreateTime >'2021-07-19 00:00:00' AND CreateTime <'2021-07-23 23:59:59';
+-- 历史入金6
+SELECT COUNT(*),SUM(Amount)/100,InChannel,Remark FROM dwpay.trade_pay_flow WHERE  `Status`=1 GROUP BY InChannel;
+                             }
+
 
 
 end;

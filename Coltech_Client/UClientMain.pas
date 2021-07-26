@@ -141,12 +141,12 @@ type
     Panel19: TPanel;
     GrdRecords: TStringGrid;
     Panel20: TPanel;
-    SpeedButton2: TSpeedButton;
+    btn_WeekReport: TSpeedButton;
     FloatAnimation9: TFloatAnimation;
     Label16: TLabel;
-    DateEdit1: TDateEdit;
+    beginTime: TDateEdit;
     Label17: TLabel;
-    DateEdit2: TDateEdit;
+    endTime: TDateEdit;
     pnl_sql: TPanel;
     memo_Sql: TMemo;
     RadioButton5: TRadioButton;
@@ -161,6 +161,10 @@ type
     edt_RecordsFilter: TEdit;
     bdso_Records: TBindSourceDB;
     LinkGridToDataSourceBindSourceDB13: TLinkGridToDataSource;
+    GrdWeekReport: TStringGrid;
+    Fdtbl_WeekReport: TFDMemTable;
+    bdso_WeekReport: TBindSourceDB;
+    LinkGridToDataSourceBindSourceDB14: TLinkGridToDataSource;
     procedure btnSymbolsClick(Sender: TObject);
     procedure btnConnClick(Sender: TObject);
     procedure RadioButton1Click(Sender: TObject);
@@ -178,6 +182,7 @@ type
     procedure edt_tables_FilterChange(Sender: TObject);
     procedure GrdTablesCellDblClick(const Column: TColumn; const Row: Integer);
     procedure edt_RecordsFilterChange(Sender: TObject);
+    procedure btn_WeekReportClick(Sender: TObject);
   private
     dbUser,dbPass,dbName,dbPort,dbServer:string;
     ConnRemoteIP,AppStr:string;
@@ -536,6 +541,22 @@ end;
 procedure TFClientMain.btn_webClick(Sender: TObject);
 begin
   web.Navigate(edtWeb.Text);
+end;
+
+procedure TFClientMain.btn_WeekReportClick(Sender: TObject);
+begin
+ try
+   var jds := ClientModuleUnit1.ClientModule1.Server_DataModuleClient
+     .GetWeekReport(formatdatetime('yyyy-mm-dd hh:nn:ss',begintime.DateTime),
+      formatdatetime('yyyy-mm-dd hh:nn:ss',Endtime.DateTime));
+  // if FDMemTable1 then
+   if Fdtbl_WeekReport.Active=True then      Fdtbl_WeekReport.Close;
+
+    Fdtbl_WeekReport.AppendData(TFDJsonDataSetsReader.GetListValue(jds,0));
+
+ except
+   exit;
+ end;
 end;
 
 procedure TFClientMain.chkDatabaseClick(Sender: TObject);

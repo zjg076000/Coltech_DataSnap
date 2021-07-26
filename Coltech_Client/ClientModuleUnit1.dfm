@@ -3,7 +3,7 @@ object ClientModule1: TClientModule1
   Height = 271
   Width = 415
   object DSRestConnection1: TDSRestConnection
-    Host = '192.168.128.148'
+    Host = '10.0.2.9'
     Port = 211
     LoginPrompt = False
     Connection = 'close'
